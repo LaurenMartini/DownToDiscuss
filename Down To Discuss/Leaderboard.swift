@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  Leaderboard.swift
 //  Down To Discuss
 //
 //  Created by Lauren Martini on 11/2/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class Leaderboard: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

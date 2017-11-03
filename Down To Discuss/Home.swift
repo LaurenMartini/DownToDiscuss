@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  Home.swift
 //  Down To Discuss
 //
 //  Created by Lauren Martini on 11/2/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class Home: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,5 +21,13 @@ class FirstViewController: UIViewController {
     }
 
 
+    @IBAction func showPopup(_ sender: Any) {
+        let popUpVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "disPopUpId") as! PopUpViewController
+        self.addChildViewController(popUpVC)
+        
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        popUpVC.didMove(toParentViewController: self)
+    }
 }
 
