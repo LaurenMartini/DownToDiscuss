@@ -14,12 +14,20 @@
 		DF6C4FB41FAC1A0E003CBE57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF6C4FB31FAC1A0E003CBE57 /* Assets.xcassets */; };
 		DF6C4FB71FAC1A0E003CBE57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF6C4FB51FAC1A0E003CBE57 /* LaunchScreen.storyboard */; };
 		DF6C4FC21FAC1A0E003CBE57 /* Down_To_DiscussTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6C4FC11FAC1A0E003CBE57 /* Down_To_DiscussTests.swift */; };
-		DFE52CEA1FAC28D800AFD3B8 /* CreateDiscussion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE52CE91FAC28D800AFD3B8 /* CreateDiscussion.swift */; };
 		DFE52CEC1FAC290E00AFD3B8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE52CEB1FAC290E00AFD3B8 /* Profile.swift */; };
 		DFE52CEE1FAC2BA300AFD3B8 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE52CED1FAC2BA300AFD3B8 /* MainTabBarController.swift */; };
 		DFE52CF01FAC30E600AFD3B8 /* closeUpMap.tiff in Resources */ = {isa = PBXBuildFile; fileRef = DFE52CEF1FAC30E600AFD3B8 /* closeUpMap.tiff */; };
 		DFE52CF21FAC383E00AFD3B8 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE52CF11FAC383E00AFD3B8 /* PopUpViewController.swift */; };
 		DFE52CF41FACE5B400AFD3B8 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE52CF31FACE5B400AFD3B8 /* DataModel.swift */; };
+		DFE52CF71FAE3BE800AFD3B8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFE52CF61FAE3BE800AFD3B8 /* MapKit.framework */; };
+		DFE52CF91FAE6D8600AFD3B8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFE52CF81FAE6D8600AFD3B8 /* CoreLocation.framework */; };
+		DFE52CFB1FAE817F00AFD3B8 /* Rectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE52CFA1FAE817F00AFD3B8 /* Rectangle.png */; };
+		DFE52CFE1FAE830A00AFD3B8 /* cancelButton.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE52CFC1FAE830A00AFD3B8 /* cancelButton.png */; };
+		DFE52CFF1FAE830A00AFD3B8 /* create.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE52CFD1FAE830A00AFD3B8 /* create.png */; };
+		DFE52D011FAE88ED00AFD3B8 /*  Back Arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE52D001FAE88ED00AFD3B8 /*  Back Arrow.png */; };
+		DFE52D071FB009E700AFD3B8 /* IntenseTopics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE52D061FB009E700AFD3B8 /* IntenseTopics.swift */; };
+		DFE52D091FB0260700AFD3B8 /* CreateDiscussion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE52D081FB0260700AFD3B8 /* CreateDiscussion.swift */; };
+		DFE52D0B1FB0439B00AFD3B8 /* FunTopics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE52D0A1FB0439B00AFD3B8 /* FunTopics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,12 +52,20 @@
 		DF6C4FBD1FAC1A0E003CBE57 /* Down To DiscussTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Down To DiscussTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF6C4FC11FAC1A0E003CBE57 /* Down_To_DiscussTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Down_To_DiscussTests.swift; sourceTree = "<group>"; };
 		DF6C4FC31FAC1A0E003CBE57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DFE52CE91FAC28D800AFD3B8 /* CreateDiscussion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDiscussion.swift; sourceTree = "<group>"; };
 		DFE52CEB1FAC290E00AFD3B8 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		DFE52CED1FAC2BA300AFD3B8 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		DFE52CEF1FAC30E600AFD3B8 /* closeUpMap.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = closeUpMap.tiff; path = ../../closeUpMap.tiff; sourceTree = "<group>"; };
 		DFE52CF11FAC383E00AFD3B8 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		DFE52CF31FACE5B400AFD3B8 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		DFE52CF61FAE3BE800AFD3B8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		DFE52CF81FAE6D8600AFD3B8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		DFE52CFA1FAE817F00AFD3B8 /* Rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Rectangle.png; path = ../../Rectangle.png; sourceTree = "<group>"; };
+		DFE52CFC1FAE830A00AFD3B8 /* cancelButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cancelButton.png; path = ../../cancelButton.png; sourceTree = "<group>"; };
+		DFE52CFD1FAE830A00AFD3B8 /* create.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = create.png; path = ../../create.png; sourceTree = "<group>"; };
+		DFE52D001FAE88ED00AFD3B8 /*  Back Arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = " Back Arrow.png"; path = "../../ Back Arrow.png"; sourceTree = "<group>"; };
+		DFE52D061FB009E700AFD3B8 /* IntenseTopics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntenseTopics.swift; sourceTree = "<group>"; };
+		DFE52D081FB0260700AFD3B8 /* CreateDiscussion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDiscussion.swift; sourceTree = "<group>"; };
+		DFE52D0A1FB0439B00AFD3B8 /* FunTopics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunTopics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +73,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFE52CF91FAE6D8600AFD3B8 /* CoreLocation.framework in Frameworks */,
+				DFE52CF71FAE3BE800AFD3B8 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +94,7 @@
 				DF6C4FA91FAC1A0E003CBE57 /* Down To Discuss */,
 				DF6C4FC01FAC1A0E003CBE57 /* Down To DiscussTests */,
 				DF6C4FA81FAC1A0E003CBE57 /* Products */,
+				DFE52CF51FAE3BE700AFD3B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,9 +115,15 @@
 				DFE52CF31FACE5B400AFD3B8 /* DataModel.swift */,
 				DF6C4FAC1FAC1A0E003CBE57 /* Leaderboard.swift */,
 				DF6C4FAE1FAC1A0E003CBE57 /* Home.swift */,
-				DFE52CE91FAC28D800AFD3B8 /* CreateDiscussion.swift */,
+				DFE52D061FB009E700AFD3B8 /* IntenseTopics.swift */,
+				DFE52D081FB0260700AFD3B8 /* CreateDiscussion.swift */,
 				DFE52CEB1FAC290E00AFD3B8 /* Profile.swift */,
 				DF6C4FB01FAC1A0E003CBE57 /* Main.storyboard */,
+				DFE52D0A1FB0439B00AFD3B8 /* FunTopics.swift */,
+				DFE52D001FAE88ED00AFD3B8 /*  Back Arrow.png */,
+				DFE52CFC1FAE830A00AFD3B8 /* cancelButton.png */,
+				DFE52CFD1FAE830A00AFD3B8 /* create.png */,
+				DFE52CFA1FAE817F00AFD3B8 /* Rectangle.png */,
 				DFE52CF11FAC383E00AFD3B8 /* PopUpViewController.swift */,
 				DFE52CED1FAC2BA300AFD3B8 /* MainTabBarController.swift */,
 				DF6C4FB31FAC1A0E003CBE57 /* Assets.xcassets */,
@@ -115,6 +140,15 @@
 				DF6C4FC31FAC1A0E003CBE57 /* Info.plist */,
 			);
 			path = "Down To DiscussTests";
+			sourceTree = "<group>";
+		};
+		DFE52CF51FAE3BE700AFD3B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DFE52CF81FAE6D8600AFD3B8 /* CoreLocation.framework */,
+				DFE52CF61FAE3BE800AFD3B8 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +203,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 2EDYV58479;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					DF6C4FBC1FAC1A0E003CBE57 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -202,10 +241,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFE52CFB1FAE817F00AFD3B8 /* Rectangle.png in Resources */,
 				DF6C4FB71FAC1A0E003CBE57 /* LaunchScreen.storyboard in Resources */,
 				DF6C4FB41FAC1A0E003CBE57 /* Assets.xcassets in Resources */,
+				DFE52CFF1FAE830A00AFD3B8 /* create.png in Resources */,
 				DF6C4FB21FAC1A0E003CBE57 /* Main.storyboard in Resources */,
 				DFE52CF01FAC30E600AFD3B8 /* closeUpMap.tiff in Resources */,
+				DFE52D011FAE88ED00AFD3B8 /*  Back Arrow.png in Resources */,
+				DFE52CFE1FAE830A00AFD3B8 /* cancelButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,10 +270,12 @@
 				DFE52CEC1FAC290E00AFD3B8 /* Profile.swift in Sources */,
 				DFE52CF21FAC383E00AFD3B8 /* PopUpViewController.swift in Sources */,
 				DFE52CEE1FAC2BA300AFD3B8 /* MainTabBarController.swift in Sources */,
-				DFE52CEA1FAC28D800AFD3B8 /* CreateDiscussion.swift in Sources */,
 				DFE52CF41FACE5B400AFD3B8 /* DataModel.swift in Sources */,
+				DFE52D0B1FB0439B00AFD3B8 /* FunTopics.swift in Sources */,
+				DFE52D071FB009E700AFD3B8 /* IntenseTopics.swift in Sources */,
 				DF6C4FAB1FAC1A0E003CBE57 /* AppDelegate.swift in Sources */,
 				DF6C4FAD1FAC1A0E003CBE57 /* Leaderboard.swift in Sources */,
+				DFE52D091FB0260700AFD3B8 /* CreateDiscussion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
