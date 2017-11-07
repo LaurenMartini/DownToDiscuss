@@ -14,6 +14,9 @@
 		DF6C4FB41FAC1A0E003CBE57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF6C4FB31FAC1A0E003CBE57 /* Assets.xcassets */; };
 		DF6C4FB71FAC1A0E003CBE57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF6C4FB51FAC1A0E003CBE57 /* LaunchScreen.storyboard */; };
 		DF6C4FC21FAC1A0E003CBE57 /* Down_To_DiscussTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6C4FC11FAC1A0E003CBE57 /* Down_To_DiscussTests.swift */; };
+		DFE168AD1FB106F500D580B5 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE168AC1FB106F500D580B5 /* Events.swift */; };
+		DFE168AF1FB1537200D580B5 /* MapAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE168AE1FB1537200D580B5 /* MapAnnotations.swift */; };
+		DFE168B11FB1547A00D580B5 /* MapAnnotationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE168B01FB1547A00D580B5 /* MapAnnotationsView.swift */; };
 		DFE52CEC1FAC290E00AFD3B8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE52CEB1FAC290E00AFD3B8 /* Profile.swift */; };
 		DFE52CEE1FAC2BA300AFD3B8 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE52CED1FAC2BA300AFD3B8 /* MainTabBarController.swift */; };
 		DFE52CF01FAC30E600AFD3B8 /* closeUpMap.tiff in Resources */ = {isa = PBXBuildFile; fileRef = DFE52CEF1FAC30E600AFD3B8 /* closeUpMap.tiff */; };
@@ -52,6 +55,9 @@
 		DF6C4FBD1FAC1A0E003CBE57 /* Down To DiscussTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Down To DiscussTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF6C4FC11FAC1A0E003CBE57 /* Down_To_DiscussTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Down_To_DiscussTests.swift; sourceTree = "<group>"; };
 		DF6C4FC31FAC1A0E003CBE57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFE168AC1FB106F500D580B5 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		DFE168AE1FB1537200D580B5 /* MapAnnotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotations.swift; sourceTree = "<group>"; };
+		DFE168B01FB1547A00D580B5 /* MapAnnotationsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationsView.swift; sourceTree = "<group>"; };
 		DFE52CEB1FAC290E00AFD3B8 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		DFE52CED1FAC2BA300AFD3B8 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		DFE52CEF1FAC30E600AFD3B8 /* closeUpMap.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = closeUpMap.tiff; path = ../../closeUpMap.tiff; sourceTree = "<group>"; };
@@ -115,8 +121,11 @@
 				DFE52CF31FACE5B400AFD3B8 /* DataModel.swift */,
 				DF6C4FAC1FAC1A0E003CBE57 /* Leaderboard.swift */,
 				DF6C4FAE1FAC1A0E003CBE57 /* Home.swift */,
+				DFE168AE1FB1537200D580B5 /* MapAnnotations.swift */,
+				DFE168B01FB1547A00D580B5 /* MapAnnotationsView.swift */,
 				DFE52D061FB009E700AFD3B8 /* IntenseTopics.swift */,
 				DFE52D081FB0260700AFD3B8 /* CreateDiscussion.swift */,
+				DFE168AC1FB106F500D580B5 /* Events.swift */,
 				DFE52CEB1FAC290E00AFD3B8 /* Profile.swift */,
 				DF6C4FB01FAC1A0E003CBE57 /* Main.storyboard */,
 				DFE52D0A1FB0439B00AFD3B8 /* FunTopics.swift */,
@@ -267,7 +276,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF6C4FAF1FAC1A0E003CBE57 /* Home.swift in Sources */,
+				DFE168AD1FB106F500D580B5 /* Events.swift in Sources */,
 				DFE52CEC1FAC290E00AFD3B8 /* Profile.swift in Sources */,
+				DFE168B11FB1547A00D580B5 /* MapAnnotationsView.swift in Sources */,
+				DFE168AF1FB1537200D580B5 /* MapAnnotations.swift in Sources */,
 				DFE52CF21FAC383E00AFD3B8 /* PopUpViewController.swift in Sources */,
 				DFE52CEE1FAC2BA300AFD3B8 /* MainTabBarController.swift in Sources */,
 				DFE52CF41FACE5B400AFD3B8 /* DataModel.swift in Sources */,

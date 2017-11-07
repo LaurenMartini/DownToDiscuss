@@ -29,8 +29,8 @@ class FunTopics: UIViewController,UITableViewDelegate, UITableViewDataSource {
         currIndexFun = indexPath.row
         
         fAccessed = 1
+        navigationController?.popToRootViewController(animated: true)
         
-        performSegue(withIdentifier: "segueFun", sender: self)
     }
 
 

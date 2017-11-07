@@ -10,6 +10,7 @@ import UIKit
 
 //flag - ASK PAIGE IF THERE IS A BETTER WAY TO IMPLEMENT THIS
 var eventCreated = 0
+var eventName = ""
 
 class CreateDiscussion: UIViewController {
     
@@ -24,6 +25,11 @@ class CreateDiscussion: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         // Do any additional setup after loading the view.
         if (iAccessed == 1) {
             intenseTopic.text = iTopics[currIndex]
@@ -39,19 +45,33 @@ class CreateDiscussion: UIViewController {
             funTopic.text = "Choose Topic >"
         }
         
-//        if (disName.text == "") {
-//            disName.text = "Enter Discussion Title"
-//            disName.textColor = UIColor.gray
+        //        if (disName.text == "") {
+        //            disName.text = "Enter Discussion Title"
+        //            disName.textColor = UIColor.gray
+        //        }
+        
+        //        if (iAccessed == 1 && fAccessed == 1 && disName.text != "") {
+        //            createButton.backgroundColor = UIColor.green
+        //        }
+//        if (iAccessed == 1 && fAccessed == 1) {
+//            createButton.backgroundColor = UIColor.green
+//            eventCreated = 1
 //        }
         
-//        if (iAccessed == 1 && fAccessed == 1 && disName.text != "") {
-//            createButton.backgroundColor = UIColor.green
-//        }
-        //ASK ABOUT THIS!!! AND HOW TO SAVE THE TEXT BETWEEN SCREENS
-        if (iAccessed == 1 && fAccessed == 1) {
-            createButton.backgroundColor = UIColor.green
+        createButton.isEnabled = createShouldBeEnabled()
+
+    }
+    
+    
+    
+    
+    func createShouldBeEnabled() -> Bool {
+        if (iAccessed == 1 && fAccessed == 1 && disName.text != "") {
             eventCreated = 1
+            eventName = disName.text!
+            return true
         }
+        return false
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,6 +79,7 @@ class CreateDiscussion: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+  
 
     /*
     // MARK: - Navigation

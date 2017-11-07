@@ -30,7 +30,7 @@ class IntenseTopics: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         iAccessed = 1
         
-        performSegue(withIdentifier: "segue", sender: self)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     override func viewDidLoad() {
