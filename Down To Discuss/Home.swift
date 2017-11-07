@@ -10,6 +10,9 @@ import UIKit
 import MapKit
 import CoreLocation
 
+var curLat = 0.0
+var curLong = 0.0
+
 class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet var Map: MKMapView!
@@ -77,8 +80,10 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
                 }
                 //latitude
                 let lat = (location?.coordinate.latitude)! + ((0.001 * amt) * otherAmt)
+                userLat[y] = lat
                 //longitude
                 let long = (location?.coordinate.longitude)! + ((0.001 * amt) * mulAmt)
+                userLong[y] = long
                 //location
                 let disLocation = CLLocationCoordinate2D(latitude: lat, longitude: long)
                 //pin
@@ -129,7 +134,10 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
-            selectedAnnotation = view.annotation as? MKPointAnnotation
+            //selectedAnnotation = view.annotation as? MKPointAnnotation
+            let mpAn = view.annotation as? MapAnnotations
+            curLat = (mpAn?.coordinate.latitude)!
+            curLong = (mpAn?.coordinate.longitude)!
             showPopup(sender: self)
             //performSegue(withIdentifier: "popUp", sender: self)
         }

@@ -11,6 +11,8 @@ var userName = ["Alice", "Bob", "Charlie", "David", "Ellie"]
 var discussionTitle = ["Event1", "Event2", "Event3", "Event4", "Event5"]
 var funT = ["Food", "Dogs", "Movies", "Music", "Dogs"]
 var intenseT = ["Global Warming", "Immigration", "Free Speech", "Drug Policy", "Free Speech"]
+var userLat = [0.0, 0.0, 0.0, 0.0, 0.0]
+var userLong = [0.0, 0.0, 0.0, 0.0, 0.0]
 
 class Events {
     /* EVENTS

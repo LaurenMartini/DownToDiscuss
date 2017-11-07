@@ -10,10 +10,27 @@ import UIKit
 
 class PopUpViewController: UIViewController {
 
+    @IBOutlet var disTitle: UILabel!
+    
+    @IBOutlet var funTop: UILabel!
+    
+    @IBOutlet var intenseTop: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //compare lat and longitute to user lat and longitude
+        var num = 0
+        while (num < 5) {
+            if (userLat[num] == curLat && userLong[num] == curLong) {
+                break
+            }
+            num += 1
+        }
+        disTitle.text = discussionTitle[num]
+        funTop.text = funT[num]
+        intenseTop.text = intenseT[num]
     }
 
     override func didReceiveMemoryWarning() {
