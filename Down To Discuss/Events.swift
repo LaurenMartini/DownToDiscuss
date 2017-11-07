@@ -7,6 +7,10 @@
 //
 
 import Foundation
+var userName = ["Alice", "Bob", "Charlie", "David", "Ellie"]
+var discussionTitle = ["Event1", "Event2", "Event3", "Event4", "Event5"]
+var funT = ["Food", "Dogs", "Movies", "Music", "Dogs"]
+var intenseT = ["Global Warming", "Immigration", "Free Speech", "Drug Policy", "Free Speech"]
 
 class Events {
     /* EVENTS
@@ -20,8 +24,15 @@ class Events {
      -intTopic (intense topic)
      -userPic
      */
-    var userName = ["Alice", "Bob", "Charlie", "David", "Ellie"]
+    var userName:[String]
+    init(userName:[String]) {
+        self.userName = ["Alice", "Bob", "Charlie", "David", "Ellie"]
+    }
     var discussionTitle = ["Event1", "Event2", "Event3", "Event4", "Event5"]
     var funT = ["Food", "Dogs", "Movies", "Music", "Dogs"]
     var intenseT = ["Global Warming", "Immigration", "Free Speech", "Drug Policy", "Free Speech"]
+    
+    func getUserName(index: Int) -> String {
+        return userName[index]
+    }
 }

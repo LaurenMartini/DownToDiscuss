@@ -41,19 +41,10 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
         
-        //location annotation/load in specific location code
-//        let location = CLLocationCoordinate2DMake(37.876032, -122.258806)
+//        let event1 = MapAnnotations(coordinate: CLLocationCoordinate2D(latitude: 37.3358656, longitude: -122.030848), title: "Event 1", subtitle: "food")
 //        
-//        let span = MKCoordinateSpanMake(0.005, 0.005)
-//        
-//        let region = MKCoordinateRegion(center: location, span: span)
-//        
-//        Map.setRegion(region, animated: true)
-//
-//        let annotation = MKPointAnnotation()
-//        annotation.coordinate = location
-//        
-//        Map.addAnnotation(annotation)
+//        Map.addAnnotation(event1)
+        
         addOtherDiscussions(manager, didUpdateLocations: [manager.location!])
         
         //fix to add user's created event to the map
@@ -68,11 +59,6 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     }
     
     func addOtherDiscussions(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        let nePoint = CGPoint(x: Map.bounds.origin.x + Map.bounds.size.width, y: Map.bounds.origin.y)
-//        let sePoint = CGPoint(x: Map.bounds.origin.x, y: Map.bounds.origin.y + Map.bounds.size.height)
-//        let neCoordinate = Map.convert(nePoint, toCoordinateFrom: Map)
-//        let seCoordinate = Map.convert(sePoint, toCoordinateFrom: Map)
-//        
         let location = locations.first
         if (location != nil) {
             var y = 0
@@ -96,12 +82,12 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
                 //location
                 let disLocation = CLLocationCoordinate2D(latitude: lat, longitude: long)
                 //pin
-                let pin = MKPointAnnotation()
+                let pin = MapAnnotations(coordinate: disLocation, title: discussionTitle[y], subtitle: funT[y] + ", " + intenseT[y])
                 //place pin
-                pin.coordinate = disLocation
-                //add info to that marker
-                pin.title = "Dis: " + String(y)
-                
+//                pin.coordinate = disLocation
+//                //add info to that marker
+//                pin.title = discussionTitle[y]
+//                pin.subtitle = funT[y] + ", " + intenseT[y]
                 Map.addAnnotation(pin)
                 y += 1
             }
@@ -111,19 +97,49 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     func addNewDiscussionMarker(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         //to add a waypoint to the user's location if they created a discussion
         let location = locations.first
-        let type = MapMarkerType(rawValue: 0) ?? .onePt
+        //let type = MapMarkerType(rawValue: 0) ?? .onePt
         if (location != nil) {
-            let annotation = MapAnnotations(coordinate: (location?.coordinate)!, title: eventName, subtitle: "User's subtitle", type: type)
+            let annotation = MapAnnotations(coordinate: (location?.coordinate)!, title: eventName, subtitle: "User's subtitle")
             Map.addAnnotation(annotation)
         }
     }
     
-    //for custom annotations to show up
-    func mapMarks(_ Map: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let annotationView = MapAnnotationsView(annotation: annotation, reuseIdentifier: "MapMarker")
-        annotationView.canShowCallout = true
-        return annotationView
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
+        let identifier = "MapAnnotations"
+        
+        if annotation is MapAnnotations {
+            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+            if annotationView == nil {
+                annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                annotationView!.canShowCallout = true
+                
+                let btn = UIButton(type: .detailDisclosure)
+                annotationView!.rightCalloutAccessoryView = btn
+            } else {
+                annotationView!.annotation = annotation
+            }
+            
+            return annotationView
+        }
+        
+        return nil
     }
+    
+    var selectedAnnotation: MKPointAnnotation!
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            selectedAnnotation = view.annotation as? MKPointAnnotation
+            showPopup(sender: self)
+            //performSegue(withIdentifier: "popUp", sender: self)
+        }
+    }
+    
+//    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if let destination = segue.destination as? PopUpViewController {
+//            destination.annotation = selectedAnnotation
+//        }
+//    }
 
 
     //POP UP CODE
@@ -135,11 +151,18 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         self.view.addSubview(popUpVC.view)
         popUpVC.didMove(toParentViewController: self)
     }
-    
-    //map control section
-//    override func viewWillLayoutSubviews() {
-//        [super.viewWillLayoutSubviews]
-//        self.mapView.frame = self.view.bounds
-//    }
 }
 
+//        //location annotation/load in specific location code
+//        let location = CLLocationCoordinate2DMake(37.876032, -122.258806)
+//
+//        let span = MKCoordinateSpanMake(0.005, 0.005)
+//
+//        let region = MKCoordinateRegion(center: location, span: span)
+//
+//        Map.setRegion(region, animated: true)
+//
+//        let annotation = MKPointAnnotation()
+//        annotation.coordinate = location
+//
+//        Map.addAnnotation(annotation)
