@@ -12,6 +12,7 @@ import CoreLocation
 
 var curLat = 0.0
 var curLong = 0.0
+var disNum = 0
 
 class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
@@ -29,7 +30,7 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         
         let region = MKCoordinateRegionMake(myLocation, span)
         
-        Map.setRegion(region, animated: true)
+        Map.setRegion(region, animated: false)
         
         self.Map.showsUserLocation = true
     }
@@ -40,7 +41,7 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         
         //current location code section
         manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.desiredAccuracy = kCLLocationAccuracyKilometer
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
         
@@ -49,6 +50,8 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 //        Map.addAnnotation(event1)
         
         addOtherDiscussions(manager, didUpdateLocations: [manager.location!])
+        
+        discussionReached(manager, didUpdateLocations: [manager.location!])
         
         //fix to add user's created event to the map
         if (eventCreated == 1) {
@@ -109,6 +112,30 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         }
     }
     
+    func discussionReached(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        //show alert when within range of location
+        let location = locations.first
+        
+        if (location != nil) {
+            var num = 0
+            
+            while (num < 5) {
+                if (userLat[num] == location?.coordinate.latitude && userLong[num] == location?.coordinate.longitude) {
+                    let ac = UIAlertController(title: "You have arrived!", message: "Ready to discuss?", preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "Discuss", style: .default, handler: {(action) in ac.dismiss(animated: true, completion: nil)
+                        //do something here
+                    }))
+                    ac.addAction(UIAlertAction(title: "Cancel", style: .default, handler: {(action) in ac.dismiss(animated: true, completion: nil)
+                        //do something here
+                    }))
+                    disNum = num
+                    break
+                }
+                num += 1
+            }
+        }
+    }
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
         let identifier = "MapAnnotations"
         
@@ -159,7 +186,21 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         self.view.addSubview(popUpVC.view)
         popUpVC.didMove(toParentViewController: self)
     }
+    
+    @IBAction func showDisEnd(_ sender: Any) {
+        let popUpVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "endDiscussion") as! DiscussionEndPopUpController
+        self.addChildViewController(popUpVC)
+        
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        popUpVC.didMove(toParentViewController: self)
+    }
 }
+
+//circle view
+//set center 
+//IBAction (can make it hidden)
+//region (geofencing) - check if cg point in map region
 
 //        //location annotation/load in specific location code
 //        let location = CLLocationCoordinate2DMake(37.876032, -122.258806)

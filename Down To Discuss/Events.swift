@@ -11,8 +11,17 @@ var userName = ["Alice", "Bob", "Charlie", "David", "Ellie"]
 var discussionTitle = ["Event1", "Event2", "Event3", "Event4", "Event5"]
 var funT = ["Food", "Dogs", "Movies", "Music", "Dogs"]
 var intenseT = ["Global Warming", "Immigration", "Free Speech", "Drug Policy", "Free Speech"]
+var starRating = ["fourStars.png", "threeStars.png", "fourStars.png", "fiveStars.png", "twoStars.png"]
 var userLat = [0.0, 0.0, 0.0, 0.0, 0.0]
 var userLong = [0.0, 0.0, 0.0, 0.0, 0.0]
+
+//all events are tied to a user.  array of user
+//array of events, array of users (events would say who created them)
+//if event.user (for event in events)
+//map events to location
+//var events = [Events]
+
+//make an array of events
 
 class Events {
     /* EVENTS
@@ -25,6 +34,7 @@ class Events {
      -funTopic
      -intTopic (intense topic)
      -userPic
+     -location
      */
     var userName:[String]
     init(userName:[String]) {

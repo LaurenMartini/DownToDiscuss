@@ -16,6 +16,8 @@ class PopUpViewController: UIViewController {
     
     @IBOutlet var intenseTop: UILabel!
     
+    @IBOutlet var sRating: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,6 +31,7 @@ class PopUpViewController: UIViewController {
             num += 1
         }
         disTitle.text = discussionTitle[num]
+        sRating.image = UIImage(named:starRating[num])
         funTop.text = funT[num]
         intenseTop.text = intenseT[num]
     }
