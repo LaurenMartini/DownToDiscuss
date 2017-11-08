@@ -11,6 +11,8 @@ import UIKit
 //flag - ASK PAIGE IF THERE IS A BETTER WAY TO IMPLEMENT THIS
 var eventCreated = 0
 var eventName = ""
+var fT = ""
+var iT = ""
 
 class CreateDiscussion: UIViewController {
     
@@ -69,6 +71,8 @@ class CreateDiscussion: UIViewController {
         if (iAccessed == 1 && fAccessed == 1 && disName.text != "") {
             eventCreated = 1
             eventName = disName.text!
+            fT = funTopic.text!
+            iT = intenseTopic.text!
             return true
         }
         return false

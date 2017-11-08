@@ -13,6 +13,11 @@ import CoreLocation
 var curLat = 0.0
 var curLong = 0.0
 var disNum = 0
+var exLocation = CLLocationCoordinate2DMake(37.876032, -122.258806)
+var moveLat = 0.0
+var moveLong = 0.0
+var userWalked = 0
+// userPos = UIImage(named: "blueCircle.png")
 
 class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
@@ -24,15 +29,17 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
         
-        let span = MKCoordinateSpanMake(0.05, 0.05)
+        let span = MKCoordinateSpanMake(0.008, 0.008)
         
         let myLocation = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
         
-        let region = MKCoordinateRegionMake(myLocation, span)
+        //let exLocation = CLLocationCoordinate2DMake(37.876032, -122.258806)
+        
+        let region = MKCoordinateRegionMake(exLocation, span)
         
         Map.setRegion(region, animated: false)
         
-        self.Map.showsUserLocation = true
+        //self.Map.showsUserLocation = true
     }
 
     override func viewDidLoad() {
@@ -48,6 +55,7 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 //        let event1 = MapAnnotations(coordinate: CLLocationCoordinate2D(latitude: 37.3358656, longitude: -122.030848), title: "Event 1", subtitle: "food")
 //        
 //        Map.addAnnotation(event1)
+        Map.setCenter(exLocation, animated: true)
         
         addOtherDiscussions(manager, didUpdateLocations: [manager.location!])
         
@@ -57,6 +65,9 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         if (eventCreated == 1) {
             addNewDiscussionMarker(manager, didUpdateLocations: [manager.location!])
         }
+        if (ownerEndedEvent == 1) {
+            showOwnerPoints(sender: self)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,74 +76,145 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     }
     
     func addOtherDiscussions(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.first
-        if (location != nil) {
-            var y = 0
-            while y < 5 {
-                var mulAmt = 1.0
-                var otherAmt = 1.0
-                if (y % 2 == 0) {
-                    mulAmt = -1.0
-                }
-                if (y % 2 != 0) {
-                    otherAmt = -1.0
-                }
-                var amt = Double(y)
-                if (y == 0) {
-                    amt = 6.0
-                }
-                //latitude
-                let lat = (location?.coordinate.latitude)! + ((0.001 * amt) * otherAmt)
-                userLat[y] = lat
-                //longitude
-                let long = (location?.coordinate.longitude)! + ((0.001 * amt) * mulAmt)
-                userLong[y] = long
-                //location
-                let disLocation = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                //pin
-                let pin = MapAnnotations(coordinate: disLocation, title: discussionTitle[y], subtitle: funT[y] + ", " + intenseT[y])
-                //place pin
-//                pin.coordinate = disLocation
-//                //add info to that marker
-//                pin.title = discussionTitle[y]
-//                pin.subtitle = funT[y] + ", " + intenseT[y]
-                Map.addAnnotation(pin)
-                y += 1
+        let location = exLocation //was locations.first for current Location
+//        if (location != nil) {
+//            var y = 0
+//            while y < 5 {
+//                var mulAmt = 1.0
+//                var otherAmt = 1.0
+//                if (y % 2 == 0) {
+//                    mulAmt = -1.0
+//                }
+//                if (y % 2 != 0) {
+//                    otherAmt = -1.0
+//                }
+//                var amt = Double(y)
+//                if (y == 0) {
+//                    amt = 6.0
+//                }
+//                //latitude
+//                let lat = (location.latitude) + ((0.001 * amt) * otherAmt)
+//                userLat[y] = lat
+//                //longitude
+//                let long = (location.longitude) + ((0.001 * amt) * mulAmt)
+//                userLong[y] = long
+//                //location
+//                let disLocation = CLLocationCoordinate2D(latitude: lat, longitude: long)
+//                //pin
+//                let pin = MapAnnotations(coordinate: disLocation, title: discussionTitle[y], subtitle: funT[y] + ", " + intenseT[y])
+//                //place pin
+////                pin.coordinate = disLocation
+////                //add info to that marker
+////                pin.title = discussionTitle[y]
+////                pin.subtitle = funT[y] + ", " + intenseT[y]
+//                Map.addAnnotation(pin)
+//                y += 1
+//            }
+//        }
+        var y = 0
+        while y < 5 {
+            var mulAmt = 1.0
+            var otherAmt = 1.0
+            if (y % 2 == 0) {
+                mulAmt = -1.0
             }
+            if (y % 2 != 0) {
+                otherAmt = -1.0
+            }
+            var amt = Double(y)
+            if (y == 0) {
+                amt = 6.0
+            }
+            //latitude
+            let lat = (location.latitude) + ((0.001 * amt) * otherAmt)
+            userLat[y] = lat
+            //longitude
+            let long = (location.longitude) + ((0.001 * amt) * mulAmt)
+            userLong[y] = long
+            
+            //store 2nd event as a temp for first prototype iteration
+            if (y == 2) {
+                moveLat = lat
+                moveLong = long
+            }
+            
+            //location
+            let disLocation = CLLocationCoordinate2D(latitude: lat, longitude: long)
+            //pin
+            let pin = MapAnnotations(coordinate: disLocation, title: discussionTitle[y], subtitle: funT[y] + ", " + intenseT[y])
+            //place pin
+            //                pin.coordinate = disLocation
+            //                //add info to that marker
+            //                pin.title = discussionTitle[y]
+            //                pin.subtitle = funT[y] + ", " + intenseT[y]
+            Map.addAnnotation(pin)
+            y += 1
         }
     }
     
     func addNewDiscussionMarker(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         //to add a waypoint to the user's location if they created a discussion
-        let location = locations.first
-        //let type = MapMarkerType(rawValue: 0) ?? .onePt
-        if (location != nil) {
-            let annotation = MapAnnotations(coordinate: (location?.coordinate)!, title: eventName, subtitle: "User's subtitle")
-            Map.addAnnotation(annotation)
-        }
+        let location = exLocation
+        //let type = MapMarkerType(rawValue: 0) ?? .onePt USED FOR CURRENT LOCATION
+//        if (location != nil) {
+//            let annotation = MapAnnotations(coordinate: location, title: eventName, subtitle: "User's subtitle")
+//            Map.addAnnotation(annotation)
+//            userName.append("Amber")
+//            discussionTitle.append(eventName)
+//            funT.append(fT)
+//            intenseT.append(iT)
+//            starRating.append("fourStars.png")
+//            userLat.append(location.latitude)
+//            userLong.append(location.longitude)
+//        }
+        let annotation = MapAnnotations(coordinate: location, title: eventName, subtitle: "User's subtitle")
+        Map.addAnnotation(annotation)
+        userName.append("Amber")
+        discussionTitle.append(eventName)
+        funT.append(fT)
+        intenseT.append(iT)
+        starRating.append("fourStars.png")
+        userLat.append(location.latitude)
+        userLong.append(location.longitude)
     }
     
     func discussionReached(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         //show alert when within range of location
-        let location = locations.first
+        let location = exLocation
         
-        if (location != nil) {
-            var num = 0
-            
-            while (num < 5) {
-                if (userLat[num] == location?.coordinate.latitude && userLong[num] == location?.coordinate.longitude) {
-                    let ac = UIAlertController(title: "You have arrived!", message: "Ready to discuss?", preferredStyle: .alert)
-                    ac.addAction(UIAlertAction(title: "Discuss", style: .default, handler: {(action) in ac.dismiss(animated: true, completion: nil)
-                        //do something here
-                    }))
-                    ac.addAction(UIAlertAction(title: "Cancel", style: .default, handler: {(action) in ac.dismiss(animated: true, completion: nil)
-                        //do something here
-                    }))
-                    disNum = num
-                    break
-                }
-                num += 1
+//        if (location != nil) {
+//            var num = 0
+//            
+//            while (num < 5) {
+//                if (userLat[num] == location.latitude && userLong[num] == location.longitude) {
+//                    let ac = UIAlertController(title: "You have arrived!", message: "Ready to discuss?", preferredStyle: .alert)
+//                    ac.addAction(UIAlertAction(title: "Discuss", style: .default, handler: {(action) in ac.dismiss(animated: true, completion: nil)
+//                        //do something here
+//                    }))
+//                    ac.addAction(UIAlertAction(title: "Cancel", style: .default, handler: {(action) in ac.dismiss(animated: true, completion: nil)
+//                        //do something here
+//                    }))
+//                    disNum = num
+//                    break
+//                }
+//                num += 1
+//            }
+//        }
+        var num = 0
+        
+        while (num < 5) {
+            if (userLat[num] == location.latitude && userLong[num] == location.longitude) {
+                let ac = UIAlertController(title: "You have arrived!", message: "Ready to discuss?", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Discuss", style: .default, handler: {(action) in ac.dismiss(animated: true, completion: nil)
+                    //do something here
+                }))
+                ac.addAction(UIAlertAction(title: "Cancel", style: .default, handler: {(action) in ac.dismiss(animated: true, completion: nil)
+                    //do something here
+                }))
+                disNum = num
+                break
             }
+            num += 1
         }
     }
     
@@ -165,7 +247,19 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
             let mpAn = view.annotation as? MapAnnotations
             curLat = (mpAn?.coordinate.latitude)!
             curLong = (mpAn?.coordinate.longitude)!
-            showPopup(sender: self)
+            
+            var num = 0
+            while (num < userLat.count) {
+                if (userLat[num] == curLat && userLong[num] == curLong) {
+                    break
+                }
+                num += 1
+            }
+            if (userName[num] == "Amber") {
+                showOwnerView(sender: self)
+            } else {
+                showPopup(sender: self)
+            }
             //performSegue(withIdentifier: "popUp", sender: self)
         }
     }
@@ -194,6 +288,41 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         popUpVC.view.frame = self.view.frame
         self.view.addSubview(popUpVC.view)
         popUpVC.didMove(toParentViewController: self)
+    }
+    
+    @IBAction func showOwnerView(_ sender: Any) {
+        let popUpVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "eventOwn") as! EventOwner
+        self.addChildViewController(popUpVC)
+        
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        popUpVC.didMove(toParentViewController: self)
+    }
+    
+    @IBAction func showArriveView(_ sender: Any) {
+        let popUpVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "arrivedBoard") as! ArrivedViewController
+        self.addChildViewController(popUpVC)
+        
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        popUpVC.didMove(toParentViewController: self)
+    }
+    
+    @IBAction func showOwnerPoints(_ sender: Any) {
+        let popUpVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "ownerPtBoard") as! OwnerPointsViewController
+        self.addChildViewController(popUpVC)
+        
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        popUpVC.didMove(toParentViewController: self)
+    }
+    
+    @IBAction func userWalk(_ sender: Any) {
+        //move center of map until location = one of the events
+        exLocation = CLLocationCoordinate2DMake(moveLat, moveLong)
+//        var tempLoc = CLLocationCoordinate2DMake(moveLat, moveLong)
+//        Map.setCenter(tempLoc, animated: true)
+        showArriveView(sender: self)
     }
 }
 

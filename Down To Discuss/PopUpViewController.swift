@@ -24,7 +24,7 @@ class PopUpViewController: UIViewController {
         // Do any additional setup after loading the view.
         //compare lat and longitute to user lat and longitude
         var num = 0
-        while (num < 5) {
+        while (num < userLat.count) {
             if (userLat[num] == curLat && userLong[num] == curLong) {
                 break
             }

@@ -25,6 +25,10 @@
 		DFE168C11FB1D4C200D580B5 /* twoStars.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE168BC1FB1D4C200D580B5 /* twoStars.png */; };
 		DFE168C31FB1D78900D580B5 /* defaultProfile.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE168C21FB1D78900D580B5 /* defaultProfile.png */; };
 		DFE168C51FB1E68C00D580B5 /* DiscussionEndPopUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE168C41FB1E68C00D580B5 /* DiscussionEndPopUpController.swift */; };
+		DFE168C71FB295A400D580B5 /* EventOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE168C61FB295A400D580B5 /* EventOwner.swift */; };
+		DFE168C91FB2A03100D580B5 /* ArrivedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE168C81FB2A03100D580B5 /* ArrivedViewController.swift */; };
+		DFE168CB1FB2A65800D580B5 /* blueCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE168CA1FB2A65800D580B5 /* blueCircle.png */; };
+		DFE168CD1FB2DC4100D580B5 /* OwnerPointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE168CC1FB2DC4100D580B5 /* OwnerPointsViewController.swift */; };
 		DFE52CEC1FAC290E00AFD3B8 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE52CEB1FAC290E00AFD3B8 /* Profile.swift */; };
 		DFE52CEE1FAC2BA300AFD3B8 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE52CED1FAC2BA300AFD3B8 /* MainTabBarController.swift */; };
 		DFE52CF01FAC30E600AFD3B8 /* closeUpMap.tiff in Resources */ = {isa = PBXBuildFile; fileRef = DFE52CEF1FAC30E600AFD3B8 /* closeUpMap.tiff */; };
@@ -74,6 +78,10 @@
 		DFE168BC1FB1D4C200D580B5 /* twoStars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = twoStars.png; path = ../../twoStars.png; sourceTree = "<group>"; };
 		DFE168C21FB1D78900D580B5 /* defaultProfile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = defaultProfile.png; path = ../../../P2_redo/defaultProfile.png; sourceTree = "<group>"; };
 		DFE168C41FB1E68C00D580B5 /* DiscussionEndPopUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussionEndPopUpController.swift; sourceTree = "<group>"; };
+		DFE168C61FB295A400D580B5 /* EventOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventOwner.swift; sourceTree = "<group>"; };
+		DFE168C81FB2A03100D580B5 /* ArrivedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrivedViewController.swift; sourceTree = "<group>"; };
+		DFE168CA1FB2A65800D580B5 /* blueCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blueCircle.png; path = ../../blueCircle.png; sourceTree = "<group>"; };
+		DFE168CC1FB2DC4100D580B5 /* OwnerPointsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerPointsViewController.swift; sourceTree = "<group>"; };
 		DFE52CEB1FAC290E00AFD3B8 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		DFE52CED1FAC2BA300AFD3B8 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		DFE52CEF1FAC30E600AFD3B8 /* closeUpMap.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = closeUpMap.tiff; path = ../../closeUpMap.tiff; sourceTree = "<group>"; };
@@ -143,7 +151,11 @@
 				DFE168AC1FB106F500D580B5 /* Events.swift */,
 				DFE52CEB1FAC290E00AFD3B8 /* Profile.swift */,
 				DF6C4FB01FAC1A0E003CBE57 /* Main.storyboard */,
+				DFE168CC1FB2DC4100D580B5 /* OwnerPointsViewController.swift */,
+				DFE168C81FB2A03100D580B5 /* ArrivedViewController.swift */,
+				DFE168C61FB295A400D580B5 /* EventOwner.swift */,
 				DFE168C41FB1E68C00D580B5 /* DiscussionEndPopUpController.swift */,
+				DFE168CA1FB2A65800D580B5 /* blueCircle.png */,
 				DFE168C21FB1D78900D580B5 /* defaultProfile.png */,
 				DFE168B81FB1D4C200D580B5 /* fiveStars.png */,
 				DFE168B91FB1D4C200D580B5 /* fourStars.png */,
@@ -290,6 +302,7 @@
 				DFE52D011FAE88ED00AFD3B8 /*  Back Arrow.png in Resources */,
 				DFE52CFE1FAE830A00AFD3B8 /* cancelButton.png in Resources */,
 				DFE168BF1FB1D4C200D580B5 /* oneStar.png in Resources */,
+				DFE168CB1FB2A65800D580B5 /* blueCircle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF6C4FAF1FAC1A0E003CBE57 /* Home.swift in Sources */,
+				DFE168CD1FB2DC4100D580B5 /* OwnerPointsViewController.swift in Sources */,
 				DFE168AD1FB106F500D580B5 /* Events.swift in Sources */,
 				DFE52CEC1FAC290E00AFD3B8 /* Profile.swift in Sources */,
 				DFE168AF1FB1537200D580B5 /* MapAnnotations.swift in Sources */,
@@ -319,6 +333,8 @@
 				DF6C4FAB1FAC1A0E003CBE57 /* AppDelegate.swift in Sources */,
 				DF6C4FAD1FAC1A0E003CBE57 /* Leaderboard.swift in Sources */,
 				DFE168C51FB1E68C00D580B5 /* DiscussionEndPopUpController.swift in Sources */,
+				DFE168C91FB2A03100D580B5 /* ArrivedViewController.swift in Sources */,
+				DFE168C71FB295A400D580B5 /* EventOwner.swift in Sources */,
 				DFE52D091FB0260700AFD3B8 /* CreateDiscussion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
