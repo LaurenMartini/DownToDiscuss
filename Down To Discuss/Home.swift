@@ -29,17 +29,17 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[0]
         
-        let span = MKCoordinateSpanMake(0.008, 0.008)
+        let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
         
-        let myLocation = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+        let myLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
         
         //let exLocation = CLLocationCoordinate2DMake(37.876032, -122.258806)
         
-        let region = MKCoordinateRegionMake(exLocation, span)
+        let region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
         
         Map.setRegion(region, animated: false)
         
-        //self.Map.showsUserLocation = true
+        self.Map.showsUserLocation = true
     }
 
     override func viewDidLoad() {
@@ -48,26 +48,49 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         
         //current location code section
         manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyKilometer
-        manager.requestWhenInUseAuthorization()
+        manager.desiredAccuracy = kCLLocationAccuracyBest//kCLLocationAccuracyKilometer
+        //manager.requestWhenInUseAuthorization()
+        //temporarily adding this authorization to see if it fixes anything...
+        manager.requestAlwaysAuthorization()
         manager.startUpdatingLocation()
         
+        if (CLLocationManager.locationServicesEnabled()) {
+            switch (CLLocationManager.authorizationStatus()) {
+            case .authorizedWhenInUse:
+                print("authorized")
+                break
+            case .notDetermined:
+                print("not determined")
+                break
+            case .restricted:
+                print("restricted")
+                break
+            case .denied:
+                print("denied")
+                break
+            default:
+                print("nonsense")
+            }
+        }
+        //OLD CODE - CAN DELETE
 //        let event1 = MapAnnotations(coordinate: CLLocationCoordinate2D(latitude: 37.3358656, longitude: -122.030848), title: "Event 1", subtitle: "food")
 //        
 //        Map.addAnnotation(event1)
-        Map.setCenter(exLocation, animated: true)
         
-        addOtherDiscussions(manager, didUpdateLocations: [manager.location!])
-        
-        discussionReached(manager, didUpdateLocations: [manager.location!])
-        
-        //fix to add user's created event to the map
-        if (eventCreated == 1) {
-            addNewDiscussionMarker(manager, didUpdateLocations: [manager.location!])
-        }
-        if (ownerEndedEvent == 1) {
-            showOwnerPoints(sender: self)
-        }
+        //BROKEN CODE RIGHT NOW :( NEED TO FIGURE OUT HOW TO FIX AUTHORIZATION ISSUE
+//        Map.setCenter(exLocation, animated: true)
+//
+//        addOtherDiscussions(manager, didUpdateLocations: [manager.location!])
+//
+//        discussionReached(manager, didUpdateLocations: [manager.location!])
+//
+//        //fix to add user's created event to the map
+//        if (eventCreated == 1) {
+//            addNewDiscussionMarker(manager, didUpdateLocations: [manager.location!])
+//        }
+//        if (ownerEndedEvent == 1) {
+//            showOwnerPoints(sender: self)
+//        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -127,10 +150,10 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
             }
             //latitude
             let lat = (location.latitude) + ((0.001 * amt) * otherAmt)
-            userLat[y] = lat
+            //userLat[y] = lat
             //longitude
             let long = (location.longitude) + ((0.001 * amt) * mulAmt)
-            userLong[y] = long
+            //userLong[y] = long
             
             //store 2nd event as a temp for first prototype iteration
             if (y == 2) {
@@ -141,7 +164,7 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
             //location
             let disLocation = CLLocationCoordinate2D(latitude: lat, longitude: long)
             //pin
-            let pin = MapAnnotations(coordinate: disLocation, title: discussionTitle[y], subtitle: funT[y] + ", " + intenseT[y])
+            let pin = MapAnnotations(coordinate: disLocation, title: eventList[y].discussionTitle, subtitle: "Fun Topic: " + eventList[y].funTopic + "\n Intense Topic: " + eventList[y].intenseTopic)
             //place pin
             //                pin.coordinate = disLocation
             //                //add info to that marker
@@ -169,13 +192,8 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 //        }
         let annotation = MapAnnotations(coordinate: location, title: eventName, subtitle: "User's subtitle")
         Map.addAnnotation(annotation)
-        userName.append("Amber")
-        discussionTitle.append(eventName)
-        funT.append(fT)
-        intenseT.append(iT)
-        starRating.append("fourStars.png")
-        userLat.append(location.latitude)
-        userLong.append(location.longitude)
+        var newEvent = Events(userName: currentUser, discussionTitle: eventName, location:  CLLocationCoordinate2DMake(location.latitude, location.longitude), funTopic: "", intenseTopic: "", userPic: currUserPic!, description: "")
+        eventList.append(newEvent)
     }
     
     func discussionReached(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -203,7 +221,7 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         var num = 0
         
         while (num < 5) {
-            if (userLat[num] == location.latitude && userLong[num] == location.longitude) {
+            if (eventList[num].location.latitude == location.latitude && eventList[num].location.longitude == location.longitude) {
                 let ac = UIAlertController(title: "You have arrived!", message: "Ready to discuss?", preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "Discuss", style: .default, handler: {(action) in ac.dismiss(animated: true, completion: nil)
                     //do something here
@@ -249,13 +267,13 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
             curLong = (mpAn?.coordinate.longitude)!
             
             var num = 0
-            while (num < userLat.count) {
-                if (userLat[num] == curLat && userLong[num] == curLong) {
+            while (num < eventList.count) {
+                if (eventList[num].location.latitude == curLat && eventList[num].location.longitude == curLong) {
                     break
                 }
                 num += 1
             }
-            if (userName[num] == "Amber") {
+            if (eventList[num].userName.name == "Amber") {
                 showOwnerView(sender: self)
             } else {
                 showPopup(sender: self)

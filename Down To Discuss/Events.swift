@@ -7,21 +7,9 @@
 //
 
 import Foundation
-var userName = ["Alice", "Bob", "Charlie", "David", "Ellie"]
-var discussionTitle = ["Event1", "Event2", "Event3", "Event4", "Event5"]
-var funT = ["Food", "Dogs", "Movies", "Music", "Dogs"]
-var intenseT = ["Global Warming", "Immigration", "Free Speech", "Drug Policy", "Free Speech"]
-var starRating = ["fourStars.png", "threeStars.png", "fourStars.png", "fiveStars.png", "twoStars.png"]
-var userLat = [0.0, 0.0, 0.0, 0.0, 0.0]
-var userLong = [0.0, 0.0, 0.0, 0.0, 0.0]
-
-//all events are tied to a user.  array of user
-//array of events, array of users (events would say who created them)
-//if event.user (for event in events)
-//map events to location
-//var events = [Events]
-
-//make an array of events
+import UIKit
+import MapKit
+import CoreLocation
 
 class Events {
     /* EVENTS
@@ -36,15 +24,21 @@ class Events {
      -userPic
      -location
      */
-    var userName:[String]
-    init(userName:[String]) {
-        self.userName = ["Alice", "Bob", "Charlie", "David", "Ellie"]
-    }
-    var discussionTitle = ["Event1", "Event2", "Event3", "Event4", "Event5"]
-    var funT = ["Food", "Dogs", "Movies", "Music", "Dogs"]
-    var intenseT = ["Global Warming", "Immigration", "Free Speech", "Drug Policy", "Free Speech"]
+    var userName:Profile
+    var discussionTitle:String
+    var location:CLLocationCoordinate2D
+    var funTopic:String
+    var intenseTopic:String
+    var userPic:UIImage
+    var description:String
     
-    func getUserName(index: Int) -> String {
-        return userName[index]
+    init(userName: Profile, discussionTitle: String, location: CLLocationCoordinate2D, funTopic: String, intenseTopic: String, userPic: UIImage, description:String) {
+        self.userName = userName
+        self.discussionTitle = discussionTitle
+        self.location = location
+        self.funTopic = funTopic
+        self.intenseTopic = intenseTopic
+        self.userPic = userPic
+        self.description = description
     }
 }
