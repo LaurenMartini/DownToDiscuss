@@ -18,12 +18,15 @@ class EventOwner: UIViewController {
     
     @IBOutlet var intenseTopicOwner: UILabel!
     
+    @IBOutlet var descOwner: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         disNameOwner.text = eventName
         funTopicOwner.text = fT
         intenseTopicOwner.text = iT
+        descOwner.text = desI
     }
 
     override func didReceiveMemoryWarning() {

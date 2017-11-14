@@ -20,6 +20,10 @@ class PopUpViewController: UIViewController {
     
     @IBOutlet var pPic: UIImageView!
     
+    @IBOutlet var pointAmt: UILabel!
+    
+    @IBOutlet var desInfo: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,6 +42,8 @@ class PopUpViewController: UIViewController {
         funTop.text = eventList[num].funTopic
         intenseTop.text = eventList[num].intenseTopic
         pPic.image = eventList[num].user.userPic
+        pointAmt.text = String(eventList[num].points) + " pts"
+        desInfo.text = eventList[num].description
     }
 
     override func didReceiveMemoryWarning() {

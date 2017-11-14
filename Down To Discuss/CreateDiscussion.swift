@@ -15,18 +15,19 @@ var eventCreated = 0
 var eventName = ""
 var fT = ""
 var iT = ""
+var desI = ""
 
 class CreateDiscussion: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var createButton: UIButton!
     
-    @IBOutlet var disName: UITextField! = nil
+    @IBOutlet var disName: UITextField!
     
     @IBOutlet var intenseTopic: UILabel!
     
     @IBOutlet var funTopic: UILabel!
 
-    @IBOutlet var desField: UITextField! = nil
+    @IBOutlet var desField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +73,7 @@ class CreateDiscussion: UIViewController, UITextFieldDelegate {
         if (iAccessed == 1 && fAccessed == 1 && disName.text != "") {
             eventCreated = 1
             eventName = disName.text!
+            desI = desField.text!
             fT = funTopic.text!
             iT = intenseTopic.text!
             return true

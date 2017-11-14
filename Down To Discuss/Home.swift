@@ -121,7 +121,7 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         //to add a waypoint to the user's location if they created a discussion
         let location = exLocation
         
-        let newEvent = Events(user: currentUser, discussionTitle: eventName, location:  CLLocationCoordinate2DMake(location.latitude, location.longitude), funTopic: "", intenseTopic: "", description: "")
+        let newEvent = Events(user: currentUser, discussionTitle: eventName, location:  CLLocationCoordinate2DMake(location.latitude, location.longitude), funTopic: "", intenseTopic: "", description: "", points: 0)
         
         let annotation = MapAnnotations(coordinate: location, title: eventName, subtitle: "")
         Map.addAnnotation(annotation)
