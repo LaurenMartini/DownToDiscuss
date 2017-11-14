@@ -9,7 +9,10 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Firebase
+import FirebaseDatabase
 
+//global variables originally in Home
 var curLat = 0.0
 var curLong = 0.0
 var disNum = 0
@@ -23,21 +26,37 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet var Map: MKMapView!
     
+    //QUESTION: idk what is wrong here but it keeps saying expected declaration on second line...
+//    var ref: DatabaseReference!
+//    ref = Database.database().reference()
+    
     //required for current location
     let manager = CLLocationManager()
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations[0]
+       // let location = locations[0]
         
         let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
         
-        let myLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+//        let myLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
         
         //let exLocation = CLLocationCoordinate2DMake(37.876032, -122.258806)
         
         let region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
         
         Map.setRegion(region, animated: false)
+        
+        addOtherDiscussions(manager, didUpdateLocations: [manager.location!])
+        
+        discussionReached(manager, didUpdateLocations: [manager.location!])
+        
+        //fix to add user's created event to the map
+        if (eventCreated == 1) {
+            addNewDiscussionMarker(manager, didUpdateLocations: [manager.location!])
+        }
+        if (ownerEndedEvent == 1) {
+            showOwnerPoints(sender: self)
+        }
         
         self.Map.showsUserLocation = true
     }
@@ -51,31 +70,8 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         manager.desiredAccuracy = kCLLocationAccuracyBest//kCLLocationAccuracyKilometer
         //manager.requestWhenInUseAuthorization()
         //temporarily adding this authorization to see if it fixes anything...
-        manager.requestAlwaysAuthorization()
+        manager.requestAlwaysAuthorization() //STILL BROKEN!!
         manager.startUpdatingLocation()
-        
-        if (CLLocationManager.locationServicesEnabled()) {
-            switch (CLLocationManager.authorizationStatus()) {
-            case .authorizedWhenInUse:
-                print("authorized")
-                break
-            case .notDetermined:
-                print("not determined")
-                break
-            case .restricted:
-                print("restricted")
-                break
-            case .denied:
-                print("denied")
-                break
-            default:
-                print("nonsense")
-            }
-        }
-        //OLD CODE - CAN DELETE
-//        let event1 = MapAnnotations(coordinate: CLLocationCoordinate2D(latitude: 37.3358656, longitude: -122.030848), title: "Event 1", subtitle: "food")
-//        
-//        Map.addAnnotation(event1)
         
         //BROKEN CODE RIGHT NOW :( NEED TO FIGURE OUT HOW TO FIX AUTHORIZATION ISSUE
 //        Map.setCenter(exLocation, animated: true)
@@ -92,6 +88,10 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 //            showOwnerPoints(sender: self)
 //        }
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -100,76 +100,18 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     func addOtherDiscussions(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = exLocation //was locations.first for current Location
-//        if (location != nil) {
-//            var y = 0
-//            while y < 5 {
-//                var mulAmt = 1.0
-//                var otherAmt = 1.0
-//                if (y % 2 == 0) {
-//                    mulAmt = -1.0
-//                }
-//                if (y % 2 != 0) {
-//                    otherAmt = -1.0
-//                }
-//                var amt = Double(y)
-//                if (y == 0) {
-//                    amt = 6.0
-//                }
-//                //latitude
-//                let lat = (location.latitude) + ((0.001 * amt) * otherAmt)
-//                userLat[y] = lat
-//                //longitude
-//                let long = (location.longitude) + ((0.001 * amt) * mulAmt)
-//                userLong[y] = long
-//                //location
-//                let disLocation = CLLocationCoordinate2D(latitude: lat, longitude: long)
-//                //pin
-//                let pin = MapAnnotations(coordinate: disLocation, title: discussionTitle[y], subtitle: funT[y] + ", " + intenseT[y])
-//                //place pin
-////                pin.coordinate = disLocation
-////                //add info to that marker
-////                pin.title = discussionTitle[y]
-////                pin.subtitle = funT[y] + ", " + intenseT[y]
-//                Map.addAnnotation(pin)
-//                y += 1
-//            }
-//        }
         var y = 0
         while y < 5 {
-            var mulAmt = 1.0
-            var otherAmt = 1.0
-            if (y % 2 == 0) {
-                mulAmt = -1.0
-            }
-            if (y % 2 != 0) {
-                otherAmt = -1.0
-            }
-            var amt = Double(y)
-            if (y == 0) {
-                amt = 6.0
-            }
-            //latitude
-            let lat = (location.latitude) + ((0.001 * amt) * otherAmt)
-            //userLat[y] = lat
-            //longitude
-            let long = (location.longitude) + ((0.001 * amt) * mulAmt)
-            //userLong[y] = long
+            //location
+            let disLocation = eventList[y].location
+            //pin
+            let pin = MapAnnotations(coordinate: disLocation, title: eventList[y].discussionTitle, subtitle: "Fun Topic: " + eventList[y].funTopic + "\n Intense Topic: " + eventList[y].intenseTopic)
             
             //store 2nd event as a temp for first prototype iteration
             if (y == 2) {
-                moveLat = lat
-                moveLong = long
+                moveLat = eventList[y].location.latitude
+                moveLong = eventList[y].location.longitude
             }
-            
-            //location
-            let disLocation = CLLocationCoordinate2D(latitude: lat, longitude: long)
-            //pin
-            let pin = MapAnnotations(coordinate: disLocation, title: eventList[y].discussionTitle, subtitle: "Fun Topic: " + eventList[y].funTopic + "\n Intense Topic: " + eventList[y].intenseTopic)
-            //place pin
-            //                pin.coordinate = disLocation
-            //                //add info to that marker
-            //                pin.title = discussionTitle[y]
-            //                pin.subtitle = funT[y] + ", " + intenseT[y]
             Map.addAnnotation(pin)
             y += 1
         }
@@ -178,21 +120,12 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     func addNewDiscussionMarker(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         //to add a waypoint to the user's location if they created a discussion
         let location = exLocation
-        //let type = MapMarkerType(rawValue: 0) ?? .onePt USED FOR CURRENT LOCATION
-//        if (location != nil) {
-//            let annotation = MapAnnotations(coordinate: location, title: eventName, subtitle: "User's subtitle")
-//            Map.addAnnotation(annotation)
-//            userName.append("Amber")
-//            discussionTitle.append(eventName)
-//            funT.append(fT)
-//            intenseT.append(iT)
-//            starRating.append("fourStars.png")
-//            userLat.append(location.latitude)
-//            userLong.append(location.longitude)
-//        }
-        let annotation = MapAnnotations(coordinate: location, title: eventName, subtitle: "User's subtitle")
+        
+        let newEvent = Events(user: currentUser, discussionTitle: eventName, location:  CLLocationCoordinate2DMake(location.latitude, location.longitude), funTopic: "", intenseTopic: "", description: "")
+        
+        let annotation = MapAnnotations(coordinate: location, title: eventName, subtitle: "")
         Map.addAnnotation(annotation)
-        var newEvent = Events(userName: currentUser, discussionTitle: eventName, location:  CLLocationCoordinate2DMake(location.latitude, location.longitude), funTopic: "", intenseTopic: "", userPic: currUserPic!, description: "")
+        
         eventList.append(newEvent)
     }
     
@@ -200,24 +133,6 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         //show alert when within range of location
         let location = exLocation
         
-//        if (location != nil) {
-//            var num = 0
-//            
-//            while (num < 5) {
-//                if (userLat[num] == location.latitude && userLong[num] == location.longitude) {
-//                    let ac = UIAlertController(title: "You have arrived!", message: "Ready to discuss?", preferredStyle: .alert)
-//                    ac.addAction(UIAlertAction(title: "Discuss", style: .default, handler: {(action) in ac.dismiss(animated: true, completion: nil)
-//                        //do something here
-//                    }))
-//                    ac.addAction(UIAlertAction(title: "Cancel", style: .default, handler: {(action) in ac.dismiss(animated: true, completion: nil)
-//                        //do something here
-//                    }))
-//                    disNum = num
-//                    break
-//                }
-//                num += 1
-//            }
-//        }
         var num = 0
         
         while (num < 5) {
@@ -265,7 +180,7 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
             let mpAn = view.annotation as? MapAnnotations
             curLat = (mpAn?.coordinate.latitude)!
             curLong = (mpAn?.coordinate.longitude)!
-            
+    
             var num = 0
             while (num < eventList.count) {
                 if (eventList[num].location.latitude == curLat && eventList[num].location.longitude == curLong) {
@@ -273,21 +188,13 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
                 }
                 num += 1
             }
-            if (eventList[num].userName.name == "Amber") {
+            if (eventList[num].user.name == "Amber") {
                 showOwnerView(sender: self)
             } else {
                 showPopup(sender: self)
             }
-            //performSegue(withIdentifier: "popUp", sender: self)
         }
     }
-    
-//    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if let destination = segue.destination as? PopUpViewController {
-//            destination.annotation = selectedAnnotation
-//        }
-//    }
-
 
     //POP UP CODE
     @IBAction func showPopup(_ sender: Any) {
@@ -344,6 +251,139 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     }
 }
 
+/* CODE DUMP - OLD PARTS AND PIECES */
+
+//OLD CODE - CAN DELETE
+//        let event1 = MapAnnotations(coordinate: CLLocationCoordinate2D(latitude: 37.3358656, longitude: -122.030848), title: "Event 1", subtitle: "food")
+//
+//        Map.addAnnotation(event1)
+
+//        if (CLLocationManager.locationServicesEnabled()) {
+//            switch (CLLocationManager.authorizationStatus()) {
+//            case .authorizedWhenInUse:
+//                print("authorized")
+//                break
+//            case .notDetermined:
+//                print("not determined")
+//                break
+//            case .restricted:
+//                print("restricted")
+//                break
+//            case .denied:
+//                print("denied")
+//                break
+//            default:
+//                print("nonsense")
+//            }
+//        }
+
+//THIS WAS USED FOR WHEN CURRENT LOCATION WAS ACTUALLY USED!
+//        if (location != nil) {
+//            var y = 0
+//            while y < 5 {
+//                var mulAmt = 1.0
+//                var otherAmt = 1.0
+//                if (y % 2 == 0) {
+//                    mulAmt = -1.0
+//                }
+//                if (y % 2 != 0) {
+//                    otherAmt = -1.0
+//                }
+//                var amt = Double(y)
+//                if (y == 0) {
+//                    amt = 6.0
+//                }
+//                //latitude
+//                let lat = (location.latitude) + ((0.001 * amt) * otherAmt)
+//                userLat[y] = lat
+//                //longitude
+//                let long = (location.longitude) + ((0.001 * amt) * mulAmt)
+//                userLong[y] = long
+//                //location
+//                let disLocation = CLLocationCoordinate2D(latitude: lat, longitude: long)
+//                //pin
+//                let pin = MapAnnotations(coordinate: disLocation, title: discussionTitle[y], subtitle: funT[y] + ", " + intenseT[y])
+//                //place pin
+////                pin.coordinate = disLocation
+////                //add info to that marker
+////                pin.title = discussionTitle[y]
+////                pin.subtitle = funT[y] + ", " + intenseT[y]
+//                Map.addAnnotation(pin)
+//                y += 1
+//            }
+//        }
+
+//old coordinates
+//            var mulAmt = 1.0
+//            var otherAmt = 1.0
+//            if (y % 2 == 0) {
+//                mulAmt = -1.0
+//            }
+//            if (y % 2 != 0) {
+//                otherAmt = -1.0
+//            }
+//            var amt = Double(y)
+//            if (y == 0) {
+//                amt = 6.0
+//            }
+//            //latitude
+//            let lat = (location.latitude) + ((0.001 * amt) * otherAmt)
+//            //userLat[y] = lat
+//            //longitude
+//            let long = (location.longitude) + ((0.001 * amt) * mulAmt)
+//            //userLong[y] = long
+//
+//place pin
+//                pin.coordinate = disLocation
+//                //add info to that marker
+//                pin.title = discussionTitle[y]
+//                pin.subtitle = funT[y] + ", " + intenseT[y]
+
+//IN ADD DISCUSSION
+//let type = MapMarkerType(rawValue: 0) ?? .onePt USED FOR CURRENT LOCATION
+//        if (location != nil) {
+//            let annotation = MapAnnotations(coordinate: location, title: eventName, subtitle: "User's subtitle")
+//            Map.addAnnotation(annotation)
+//            userName.append("Amber")
+//            discussionTitle.append(eventName)
+//            funT.append(fT)
+//            intenseT.append(iT)
+//            starRating.append("fourStars.png")
+//            userLat.append(location.latitude)
+//            userLong.append(location.longitude)
+//        }
+
+//IN DISCUSSION REACHED
+//        if (location != nil) {
+//            var num = 0
+//
+//            while (num < 5) {
+//                if (userLat[num] == location.latitude && userLong[num] == location.longitude) {
+//                    let ac = UIAlertController(title: "You have arrived!", message: "Ready to discuss?", preferredStyle: .alert)
+//                    ac.addAction(UIAlertAction(title: "Discuss", style: .default, handler: {(action) in ac.dismiss(animated: true, completion: nil)
+//                        //do something here
+//                    }))
+//                    ac.addAction(UIAlertAction(title: "Cancel", style: .default, handler: {(action) in ac.dismiss(animated: true, completion: nil)
+//                        //do something here
+//                    }))
+//                    disNum = num
+//                    break
+//                }
+//                num += 1
+//            }
+//        }
+
+//SEGUE PERFORM FUNCTION
+//    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if let destination = segue.destination as? PopUpViewController {
+//            destination.annotation = selectedAnnotation
+//        }
+//    }
+
+//SEGUE PERFORM CALL INSIDE MAP VIEW
+//performSegue(withIdentifier: "popUp", sender: self)
+
+//MISC
 //circle view
 //set center 
 //IBAction (can make it hidden)

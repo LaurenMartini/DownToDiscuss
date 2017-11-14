@@ -18,22 +18,26 @@ class PopUpViewController: UIViewController {
     
     @IBOutlet var sRating: UIImageView!
     
+    @IBOutlet var pPic: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         //compare lat and longitute to user lat and longitude
         var num = 0
-        while (num < userLat.count) {
-            if (userLat[num] == curLat && userLong[num] == curLong) {
+        while (num < eventList.count) {
+            if (eventList[num].location.latitude == curLat && eventList[num].location.longitude == curLong) {
                 break
             }
             num += 1
         }
-        disTitle.text = discussionTitle[num]
-        sRating.image = UIImage(named:starRating[num])
-        funTop.text = funT[num]
-        intenseTop.text = intenseT[num]
+        
+        disTitle.text = eventList[num].discussionTitle
+        sRating.image = eventList[num].user.userRating
+        funTop.text = eventList[num].funTopic
+        intenseTop.text = eventList[num].intenseTopic
+        pPic.image = eventList[num].user.userPic
     }
 
     override func didReceiveMemoryWarning() {

@@ -6,8 +6,11 @@
 //  Copyright © 2017 cs160_team. All rights reserved.
 //
 
+//add timers
+
 import UIKit
 import CoreLocation
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //location management for map
 //        locationManager = CLLocationManager()
 //        locationManager?.requestWhenInUseAuthorization()
-        
+        FirebaseApp.configure()
         return true
     }
 

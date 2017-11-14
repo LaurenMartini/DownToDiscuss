@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5657647831B36EFD42ACCA80 /* Pods_Down_To_Discuss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B77C73C7AFC8085C82F6C3F /* Pods_Down_To_Discuss.framework */; };
+		95E1F2D677F9AFC5E2BFBBE6 /* Pods_Down_To_DiscussTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C5C75C0EA9C54648651069 /* Pods_Down_To_DiscussTests.framework */; };
 		DF696C301FB99AF0006A3DAA /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF696C2A1FB99AEE006A3DAA /* 4.jpg */; };
 		DF696C311FB99AF0006A3DAA /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF696C2B1FB99AEE006A3DAA /* 1.jpg */; };
 		DF696C321FB99AF0006A3DAA /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF696C2C1FB99AEF006A3DAA /* 6.jpg */; };
@@ -49,6 +51,7 @@
 		DFE52D071FB009E700AFD3B8 /* IntenseTopics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE52D061FB009E700AFD3B8 /* IntenseTopics.swift */; };
 		DFE52D091FB0260700AFD3B8 /* CreateDiscussion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE52D081FB0260700AFD3B8 /* CreateDiscussion.swift */; };
 		DFE52D0B1FB0439B00AFD3B8 /* FunTopics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE52D0A1FB0439B00AFD3B8 /* FunTopics.swift */; };
+		DFE54C901FBA35F0005B0184 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DFE54C8F1FBA35EF005B0184 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +65,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		233F97DDB55F293F27BFA464 /* Pods-Down To Discuss.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Down To Discuss.release.xcconfig"; path = "Pods/Target Support Files/Pods-Down To Discuss/Pods-Down To Discuss.release.xcconfig"; sourceTree = "<group>"; };
+		6B77C73C7AFC8085C82F6C3F /* Pods_Down_To_Discuss.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Down_To_Discuss.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		94C5C75C0EA9C54648651069 /* Pods_Down_To_DiscussTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Down_To_DiscussTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9755652C8ED77057323D22E0 /* Pods-Down To Discuss.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Down To Discuss.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Down To Discuss/Pods-Down To Discuss.debug.xcconfig"; sourceTree = "<group>"; };
+		D839EA810AD78392FF2F6DDF /* Pods-Down To DiscussTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Down To DiscussTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Down To DiscussTests/Pods-Down To DiscussTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DC3492E3B853AEB40C44CFEF /* Pods-Down To DiscussTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Down To DiscussTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Down To DiscussTests/Pods-Down To DiscussTests.release.xcconfig"; sourceTree = "<group>"; };
 		DF696C2A1FB99AEE006A3DAA /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 4.jpg; path = ../../goodpics/4.jpg; sourceTree = "<group>"; };
 		DF696C2B1FB99AEE006A3DAA /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.jpg; path = ../../goodpics/1.jpg; sourceTree = "<group>"; };
 		DF696C2C1FB99AEF006A3DAA /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 6.jpg; path = ../../goodpics/6.jpg; sourceTree = "<group>"; };
@@ -108,6 +117,7 @@
 		DFE52D061FB009E700AFD3B8 /* IntenseTopics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntenseTopics.swift; sourceTree = "<group>"; };
 		DFE52D081FB0260700AFD3B8 /* CreateDiscussion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDiscussion.swift; sourceTree = "<group>"; };
 		DFE52D0A1FB0439B00AFD3B8 /* FunTopics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunTopics.swift; sourceTree = "<group>"; };
+		DFE54C8F1FBA35EF005B0184 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +127,7 @@
 			files = (
 				DFE52CF91FAE6D8600AFD3B8 /* CoreLocation.framework in Frameworks */,
 				DFE52CF71FAE3BE800AFD3B8 /* MapKit.framework in Frameworks */,
+				5657647831B36EFD42ACCA80 /* Pods_Down_To_Discuss.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,12 +135,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95E1F2D677F9AFC5E2BFBBE6 /* Pods_Down_To_DiscussTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD6307648C4F6E22D53D3A86 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9755652C8ED77057323D22E0 /* Pods-Down To Discuss.debug.xcconfig */,
+				233F97DDB55F293F27BFA464 /* Pods-Down To Discuss.release.xcconfig */,
+				D839EA810AD78392FF2F6DDF /* Pods-Down To DiscussTests.debug.xcconfig */,
+				DC3492E3B853AEB40C44CFEF /* Pods-Down To DiscussTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DF6C4F9E1FAC1A0E003CBE57 = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +160,7 @@
 				DF6C4FC01FAC1A0E003CBE57 /* Down To DiscussTests */,
 				DF6C4FA81FAC1A0E003CBE57 /* Products */,
 				DFE52CF51FAE3BE700AFD3B8 /* Frameworks */,
+				AD6307648C4F6E22D53D3A86 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -155,6 +179,7 @@
 				DFE52CEF1FAC30E600AFD3B8 /* closeUpMap.tiff */,
 				DF6C4FAA1FAC1A0E003CBE57 /* AppDelegate.swift */,
 				DFE52CF31FACE5B400AFD3B8 /* DataModel.swift */,
+				DFE54C8F1FBA35EF005B0184 /* GoogleService-Info.plist */,
 				DFE168AC1FB106F500D580B5 /* Events.swift */,
 				DFE52CEB1FAC290E00AFD3B8 /* Profile.swift */,
 				DF6C4FAC1FAC1A0E003CBE57 /* Leaderboard.swift */,
@@ -167,6 +192,8 @@
 				DFE168C81FB2A03100D580B5 /* ArrivedViewController.swift */,
 				DFE168C61FB295A400D580B5 /* EventOwner.swift */,
 				DFE168C41FB1E68C00D580B5 /* DiscussionEndPopUpController.swift */,
+				DFE52CF11FAC383E00AFD3B8 /* PopUpViewController.swift */,
+				DFE52CED1FAC2BA300AFD3B8 /* MainTabBarController.swift */,
 				DF696C2B1FB99AEE006A3DAA /* 1.jpg */,
 				DF696C2D1FB99AEF006A3DAA /* 2.jpg */,
 				DF696C2E1FB99AEF006A3DAA /* 3.jpg */,
@@ -187,8 +214,6 @@
 				DFE52CFC1FAE830A00AFD3B8 /* cancelButton.png */,
 				DFE52CFD1FAE830A00AFD3B8 /* create.png */,
 				DFE52CFA1FAE817F00AFD3B8 /* Rectangle.png */,
-				DFE52CF11FAC383E00AFD3B8 /* PopUpViewController.swift */,
-				DFE52CED1FAC2BA300AFD3B8 /* MainTabBarController.swift */,
 				DF6C4FB31FAC1A0E003CBE57 /* Assets.xcassets */,
 				DF6C4FB51FAC1A0E003CBE57 /* LaunchScreen.storyboard */,
 				DF6C4FB81FAC1A0E003CBE57 /* Info.plist */,
@@ -210,6 +235,8 @@
 			children = (
 				DFE52CF81FAE6D8600AFD3B8 /* CoreLocation.framework */,
 				DFE52CF61FAE3BE800AFD3B8 /* MapKit.framework */,
+				6B77C73C7AFC8085C82F6C3F /* Pods_Down_To_Discuss.framework */,
+				94C5C75C0EA9C54648651069 /* Pods_Down_To_DiscussTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -221,9 +248,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DF6C4FC61FAC1A0E003CBE57 /* Build configuration list for PBXNativeTarget "Down To Discuss" */;
 			buildPhases = (
+				A6BCD7000DD01E9F17BAB3D9 /* [CP] Check Pods Manifest.lock */,
 				DF6C4FA31FAC1A0E003CBE57 /* Sources */,
 				DF6C4FA41FAC1A0E003CBE57 /* Frameworks */,
 				DF6C4FA51FAC1A0E003CBE57 /* Resources */,
+				848388406C01D6D24ADCA59A /* [CP] Embed Pods Frameworks */,
+				5C38E2FE6BE9F474E0B14557 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -238,9 +268,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DF6C4FC91FAC1A0E003CBE57 /* Build configuration list for PBXNativeTarget "Down To DiscussTests" */;
 			buildPhases = (
+				6F376C39228E1C6852A91FA3 /* [CP] Check Pods Manifest.lock */,
 				DF6C4FB91FAC1A0E003CBE57 /* Sources */,
 				DF6C4FBA1FAC1A0E003CBE57 /* Frameworks */,
 				DF6C4FBB1FAC1A0E003CBE57 /* Resources */,
+				CDC4DBFF2E0257CBFBD3F14D /* [CP] Embed Pods Frameworks */,
+				279F8CEA52E586D4CE3A697D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -321,6 +354,7 @@
 				DFE168C11FB1D4C200D580B5 /* twoStars.png in Resources */,
 				DFE168C31FB1D78900D580B5 /* defaultProfile.png in Resources */,
 				DF696C321FB99AF0006A3DAA /* 6.jpg in Resources */,
+				DFE54C901FBA35F0005B0184 /* GoogleService-Info.plist in Resources */,
 				DFE52CF01FAC30E600AFD3B8 /* closeUpMap.tiff in Resources */,
 				DFE52D011FAE88ED00AFD3B8 /*  Back Arrow.png in Resources */,
 				DF696C351FB99AF0006A3DAA /* 5.jpg in Resources */,
@@ -338,6 +372,114 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		279F8CEA52E586D4CE3A697D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Down To DiscussTests/Pods-Down To DiscussTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5C38E2FE6BE9F474E0B14557 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Down To Discuss/Pods-Down To Discuss-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F376C39228E1C6852A91FA3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Down To DiscussTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		848388406C01D6D24ADCA59A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Down To Discuss/Pods-Down To Discuss-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Down To Discuss/Pods-Down To Discuss-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6BCD7000DD01E9F17BAB3D9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Down To Discuss-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CDC4DBFF2E0257CBFBD3F14D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Down To DiscussTests/Pods-Down To DiscussTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DF6C4FA31FAC1A0E003CBE57 /* Sources */ = {
@@ -494,12 +636,13 @@
 		};
 		DF6C4FC71FAC1A0E003CBE57 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9755652C8ED77057323D22E0 /* Pods-Down To Discuss.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2EDYV58479;
 				INFOPLIST_FILE = "Down To Discuss/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Down-To-Discuss";
+				PRODUCT_BUNDLE_IDENTIFIER = com.downtodiscuss.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -507,12 +650,13 @@
 		};
 		DF6C4FC81FAC1A0E003CBE57 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 233F97DDB55F293F27BFA464 /* Pods-Down To Discuss.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2EDYV58479;
 				INFOPLIST_FILE = "Down To Discuss/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Down-To-Discuss";
+				PRODUCT_BUNDLE_IDENTIFIER = com.downtodiscuss.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -520,6 +664,7 @@
 		};
 		DF6C4FCA1FAC1A0E003CBE57 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D839EA810AD78392FF2F6DDF /* Pods-Down To DiscussTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -535,6 +680,7 @@
 		};
 		DF6C4FCB1FAC1A0E003CBE57 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC3492E3B853AEB40C44CFEF /* Pods-Down To DiscussTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

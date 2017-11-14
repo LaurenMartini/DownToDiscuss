@@ -7,12 +7,18 @@
 //
 
 import Foundation
+import UIKit
 
 //paige's example for profile set up
 //see DataModel file for data
 class Profile {
     var name = ""
-    init(name: String) {
+    var userPic:UIImage
+    var userRating:UIImage
+    
+    init(name: String, userPic:UIImage, userRating:UIImage) {
         self.name = name
+        self.userPic = userPic
+        self.userRating = userRating
     }
 }

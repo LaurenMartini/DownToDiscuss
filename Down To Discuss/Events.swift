@@ -24,21 +24,19 @@ class Events {
      -userPic
      -location
      */
-    var userName:Profile
+    var user:Profile
     var discussionTitle:String
     var location:CLLocationCoordinate2D
     var funTopic:String
     var intenseTopic:String
-    var userPic:UIImage
     var description:String
     
-    init(userName: Profile, discussionTitle: String, location: CLLocationCoordinate2D, funTopic: String, intenseTopic: String, userPic: UIImage, description:String) {
-        self.userName = userName
+    init(user: Profile, discussionTitle: String, location: CLLocationCoordinate2D, funTopic: String, intenseTopic: String, description:String) {
+        self.user = user
         self.discussionTitle = discussionTitle
         self.location = location
         self.funTopic = funTopic
         self.intenseTopic = intenseTopic
-        self.userPic = userPic
         self.description = description
     }
 }
