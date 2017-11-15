@@ -104,15 +104,12 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
                 break
             case "guestConfirmed":
                 //if user is guest -> show accepted window and start timer on both windows
-                if (currHost == 0) {
-                    //show accepted window
-                }
-                //start timer? Is this even needed?
+                self.showDiscussionRunning(sender: self)
                 break
             case "guestRejected":
                 //if user is guest and host rejected them
                 if (currHost == 0) {
-                    //show rejected window
+                    self.showUserRejected(sender: self)
                 }
                 break
             case "discussionEnded":
@@ -288,6 +285,24 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBAction func showHostNotify(_ sender: Any) {
         let popUpVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "hostNotified") as! HostNotifiedController
+        self.addChildViewController(popUpVC)
+        
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        popUpVC.didMove(toParentViewController: self)
+    }
+    
+    @IBAction func showUserRejected(_ sender: Any) {
+        let popUpVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "userRejected") as! UserRejectedController
+        self.addChildViewController(popUpVC)
+        
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        popUpVC.didMove(toParentViewController: self)
+    }
+    
+    @IBAction func showDiscussionRunning(_ sender: Any) {
+        let popUpVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "discussionRunning") as! DiscussionInProgressController
         self.addChildViewController(popUpVC)
         
         popUpVC.view.frame = self.view.frame
