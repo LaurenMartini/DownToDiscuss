@@ -21,6 +21,8 @@ var exLocation = CLLocationCoordinate2DMake(37.876032, -122.258806)
 var moveLat = 0.0
 var moveLong = 0.0
 var userWalked = 0
+var startTime = 0
+
 // userPos = UIImage(named: "blueCircle.png")
 
 class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
@@ -72,6 +74,10 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         
         let statusRef = ref?.child("status")
         
+        if (startWalk == 0) {
+            ref?.child("status").setValue("")
+        }
+        
         statusRef?.observe(DataEventType.value, with: { (snapshot) in
             
             // do config based off status
@@ -82,7 +88,7 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
             case "userInform":
                 //if user is host get notified that a guest is on their way
                 if (currHost == 1) {
-                    //display guest on their way window
+                    self.showHostNotify(sender: self)
                 }
                 if (currHost == 0) {
                     self.userWalk(sender:self)
@@ -93,6 +99,7 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
                 //if user is host get notified that guest is here and wants to join
                 if (currHost == 1) {
                     //notification that guest is here
+                    self.showHostConfirm(sender: self)
                 }
                 break
             case "guestConfirmed":
@@ -116,6 +123,7 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
                     self.showOwnerPoints(sender: self)
                 } else {
                     self.showDisEnd(sender: self)
+                    startWalk = 0
                 }
                 break
             case "":
@@ -262,6 +270,24 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBAction func showOwnerPoints(_ sender: Any) {
         let popUpVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "ownerPtBoard") as! OwnerPointsViewController
+        self.addChildViewController(popUpVC)
+        
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        popUpVC.didMove(toParentViewController: self)
+    }
+    
+    @IBAction func showHostConfirm(_ sender: Any) {
+        let popUpVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "hostConfirm") as! HostConfirmController
+        self.addChildViewController(popUpVC)
+        
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        popUpVC.didMove(toParentViewController: self)
+    }
+    
+    @IBAction func showHostNotify(_ sender: Any) {
+        let popUpVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "hostNotified") as! HostNotifiedController
         self.addChildViewController(popUpVC)
         
         popUpVC.view.frame = self.view.frame

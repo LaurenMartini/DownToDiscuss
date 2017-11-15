@@ -68,6 +68,7 @@ class PopUpViewController: UIViewController {
             ref?.child("status").setValue("discussionEnded")
             self.view.removeFromSuperview()
         } else {
+            startWalk = 1
             ref?.child("status").setValue("userInform")
             self.view.removeFromSuperview()
         }

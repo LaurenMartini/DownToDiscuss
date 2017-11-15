@@ -18,6 +18,8 @@ import FirebaseDatabase
 // reference to our database
 var ref: DatabaseReference?
 
+var startWalk = 0
+
 var currentUser = Profile(name: currUser, userPic: UIImage(named: "6.jpg")!, userRating: UIImage(named: "fourStars.png")!, hostStatus: 0)
 
 //default user database
