@@ -15,10 +15,12 @@ class Profile {
     var name = ""
     var userPic:UIImage
     var userRating:UIImage
+    var hostStatus:Int
     
-    init(name: String, userPic:UIImage, userRating:UIImage) {
+    init(name: String, userPic:UIImage, userRating:UIImage, hostStatus:Int) {
         self.name = name
         self.userPic = userPic
         self.userRating = userRating
+        self.hostStatus = hostStatus
     }
 }

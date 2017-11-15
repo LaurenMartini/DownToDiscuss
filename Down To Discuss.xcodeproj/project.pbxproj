@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5657647831B36EFD42ACCA80 /* Pods_Down_To_Discuss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B77C73C7AFC8085C82F6C3F /* Pods_Down_To_Discuss.framework */; };
 		95E1F2D677F9AFC5E2BFBBE6 /* Pods_Down_To_DiscussTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C5C75C0EA9C54648651069 /* Pods_Down_To_DiscussTests.framework */; };
+		DF116C911FBC24AD00C3C740 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF116C901FBC24AD00C3C740 /* LoginController.swift */; };
+		DF116C931FBC2EC700C3C740 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF116C921FBC2EC700C3C740 /* ProfileController.swift */; };
 		DF696C301FB99AF0006A3DAA /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF696C2A1FB99AEE006A3DAA /* 4.jpg */; };
 		DF696C311FB99AF0006A3DAA /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF696C2B1FB99AEE006A3DAA /* 1.jpg */; };
 		DF696C321FB99AF0006A3DAA /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF696C2C1FB99AEF006A3DAA /* 6.jpg */; };
@@ -33,7 +35,6 @@
 		DFE168C11FB1D4C200D580B5 /* twoStars.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE168BC1FB1D4C200D580B5 /* twoStars.png */; };
 		DFE168C31FB1D78900D580B5 /* defaultProfile.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE168C21FB1D78900D580B5 /* defaultProfile.png */; };
 		DFE168C51FB1E68C00D580B5 /* DiscussionEndPopUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE168C41FB1E68C00D580B5 /* DiscussionEndPopUpController.swift */; };
-		DFE168C71FB295A400D580B5 /* EventOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE168C61FB295A400D580B5 /* EventOwner.swift */; };
 		DFE168C91FB2A03100D580B5 /* ArrivedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE168C81FB2A03100D580B5 /* ArrivedViewController.swift */; };
 		DFE168CB1FB2A65800D580B5 /* blueCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = DFE168CA1FB2A65800D580B5 /* blueCircle.png */; };
 		DFE168CD1FB2DC4100D580B5 /* OwnerPointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE168CC1FB2DC4100D580B5 /* OwnerPointsViewController.swift */; };
@@ -71,6 +72,8 @@
 		9755652C8ED77057323D22E0 /* Pods-Down To Discuss.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Down To Discuss.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Down To Discuss/Pods-Down To Discuss.debug.xcconfig"; sourceTree = "<group>"; };
 		D839EA810AD78392FF2F6DDF /* Pods-Down To DiscussTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Down To DiscussTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Down To DiscussTests/Pods-Down To DiscussTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DC3492E3B853AEB40C44CFEF /* Pods-Down To DiscussTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Down To DiscussTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Down To DiscussTests/Pods-Down To DiscussTests.release.xcconfig"; sourceTree = "<group>"; };
+		DF116C901FBC24AD00C3C740 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		DF116C921FBC2EC700C3C740 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		DF696C2A1FB99AEE006A3DAA /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 4.jpg; path = ../../goodpics/4.jpg; sourceTree = "<group>"; };
 		DF696C2B1FB99AEE006A3DAA /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.jpg; path = ../../goodpics/1.jpg; sourceTree = "<group>"; };
 		DF696C2C1FB99AEF006A3DAA /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 6.jpg; path = ../../goodpics/6.jpg; sourceTree = "<group>"; };
@@ -99,7 +102,6 @@
 		DFE168BC1FB1D4C200D580B5 /* twoStars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = twoStars.png; path = ../../twoStars.png; sourceTree = "<group>"; };
 		DFE168C21FB1D78900D580B5 /* defaultProfile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = defaultProfile.png; path = ../../../P2_redo/defaultProfile.png; sourceTree = "<group>"; };
 		DFE168C41FB1E68C00D580B5 /* DiscussionEndPopUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussionEndPopUpController.swift; sourceTree = "<group>"; };
-		DFE168C61FB295A400D580B5 /* EventOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventOwner.swift; sourceTree = "<group>"; };
 		DFE168C81FB2A03100D580B5 /* ArrivedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrivedViewController.swift; sourceTree = "<group>"; };
 		DFE168CA1FB2A65800D580B5 /* blueCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blueCircle.png; path = ../../blueCircle.png; sourceTree = "<group>"; };
 		DFE168CC1FB2DC4100D580B5 /* OwnerPointsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerPointsViewController.swift; sourceTree = "<group>"; };
@@ -188,9 +190,10 @@
 				DFE52D061FB009E700AFD3B8 /* IntenseTopics.swift */,
 				DFE52D081FB0260700AFD3B8 /* CreateDiscussion.swift */,
 				DF6C4FB01FAC1A0E003CBE57 /* Main.storyboard */,
+				DF116C921FBC2EC700C3C740 /* ProfileController.swift */,
+				DF116C901FBC24AD00C3C740 /* LoginController.swift */,
 				DFE168CC1FB2DC4100D580B5 /* OwnerPointsViewController.swift */,
 				DFE168C81FB2A03100D580B5 /* ArrivedViewController.swift */,
-				DFE168C61FB295A400D580B5 /* EventOwner.swift */,
 				DFE168C41FB1E68C00D580B5 /* DiscussionEndPopUpController.swift */,
 				DFE52CF11FAC383E00AFD3B8 /* PopUpViewController.swift */,
 				DFE52CED1FAC2BA300AFD3B8 /* MainTabBarController.swift */,
@@ -491,16 +494,17 @@
 				DFE168AD1FB106F500D580B5 /* Events.swift in Sources */,
 				DFE52CEC1FAC290E00AFD3B8 /* Profile.swift in Sources */,
 				DFE168AF1FB1537200D580B5 /* MapAnnotations.swift in Sources */,
+				DF116C931FBC2EC700C3C740 /* ProfileController.swift in Sources */,
 				DFE52CF21FAC383E00AFD3B8 /* PopUpViewController.swift in Sources */,
 				DFE52CEE1FAC2BA300AFD3B8 /* MainTabBarController.swift in Sources */,
 				DFE52CF41FACE5B400AFD3B8 /* DataModel.swift in Sources */,
 				DFE52D0B1FB0439B00AFD3B8 /* FunTopics.swift in Sources */,
 				DFE52D071FB009E700AFD3B8 /* IntenseTopics.swift in Sources */,
 				DF6C4FAB1FAC1A0E003CBE57 /* AppDelegate.swift in Sources */,
+				DF116C911FBC24AD00C3C740 /* LoginController.swift in Sources */,
 				DF6C4FAD1FAC1A0E003CBE57 /* Leaderboard.swift in Sources */,
 				DFE168C51FB1E68C00D580B5 /* DiscussionEndPopUpController.swift in Sources */,
 				DFE168C91FB2A03100D580B5 /* ArrivedViewController.swift in Sources */,
-				DFE168C71FB295A400D580B5 /* EventOwner.swift in Sources */,
 				DFE52D091FB0260700AFD3B8 /* CreateDiscussion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

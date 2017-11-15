@@ -71,7 +71,6 @@ class CreateDiscussion: UIViewController, UITextFieldDelegate {
     
     func createShouldBeEnabled() -> Bool {
         if (iAccessed == 1 && fAccessed == 1 && disName.text != "") {
-            eventCreated = 1
             eventName = disName.text!
             desI = desField.text!
             fT = funTopic.text!
@@ -87,7 +86,19 @@ class CreateDiscussion: UIViewController, UITextFieldDelegate {
     }
     
   
-
+    @IBAction func createButtonWasPressed(_ sender: UIButton) {
+        //example of database updated
+       //ref?.child("status").setValue("hello world")
+        currentUser.hostStatus = 1
+        eventCreated = 1
+        tabBarController?.selectedIndex = 1
+    }
+    
+    @IBAction func cancelButtonWasPressed(_ sender: UIButton) {
+        tabBarController?.selectedIndex = 1
+    }
+    //add the same thing for cancel
+    
     /*
     // MARK: - Navigation
 

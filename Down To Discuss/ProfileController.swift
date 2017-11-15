@@ -1,18 +1,31 @@
 //
-//  OwnerPointsViewController.swift
+//  ProfileController.swift
 //  Down To Discuss
 //
-//  Created by Lauren Martini on 11/7/17.
+//  Created by Lauren Martini on 11/15/17.
 //  Copyright © 2017 cs160_team. All rights reserved.
 //
 
 import UIKit
 
-class OwnerPointsViewController: UIViewController {
-
+class ProfileController: UIViewController {
+    
+    @IBOutlet var currUserLabel: UILabel!
+    
+    @IBOutlet var profilePic: UIImageView!
+    
+    @IBOutlet var ratingPic: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if (currHost == 1) {
+            currUserLabel.text = eventList[2].user.name
+            profilePic.image = eventList[2].user.userPic
+            ratingPic.image = eventList[2].user.userRating
+        } else {
+            currUserLabel.text = currUser
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -21,14 +34,6 @@ class OwnerPointsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func acceptedPoints(_ sender: Any) {
-        if(currHost == 1) {
-            eventList[2].user.hostStatus = 0
-        }
-        ref?.child("status").setValue("")
-        currentUser.hostStatus = 0
-        self.view.removeFromSuperview()
-    }
 
     /*
     // MARK: - Navigation

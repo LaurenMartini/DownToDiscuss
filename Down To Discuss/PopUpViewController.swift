@@ -24,9 +24,12 @@ class PopUpViewController: UIViewController {
     
     @IBOutlet var desInfo: UILabel!
     
+    @IBOutlet var goEndButton: UIButton!
+    
+    @IBOutlet var chatEditButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         //compare lat and longitute to user lat and longitude
         var num = 0
@@ -42,14 +45,38 @@ class PopUpViewController: UIViewController {
         funTop.text = eventList[num].funTopic
         intenseTop.text = eventList[num].intenseTopic
         pPic.image = eventList[num].user.userPic
-        pointAmt.text = String(eventList[num].points) + " pts"
         desInfo.text = eventList[num].description
+        
+        if (currHost == 1 && num == 2){
+            //make sure that the edit/end event popup is displayed
+            goEndButton.setTitle("End", for: UIControlState.normal)
+            chatEditButton.setTitle("Edit", for: UIControlState.normal)
+            //also don't show points
+            pointAmt.text = ""
+        } else {
+            pointAmt.text = String(eventList[num].points) + " pts"
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func goEndPressed(_ sender: UIButton) {
+        if (currHost == 1) {
+            ref?.child("status").setValue("discussionEnded")
+            self.view.removeFromSuperview()
+        } else {
+            ref?.child("status").setValue("userInform")
+            self.view.removeFromSuperview()
+        }
+    }
+    
+    //ENABLE THIS FOR FINAL PROJECT
+//    @IBAction func chatEditPressed(_ sender: UIButton) {
+//
+//    }
     
     @IBAction func closePopUp(_ sender: Any) {
         self.view.removeFromSuperview()

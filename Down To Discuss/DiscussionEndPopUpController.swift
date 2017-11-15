@@ -41,7 +41,12 @@ class DiscussionEndPopUpController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    @IBAction func discussionEndedPressed(_ sender: UIButton) {
+        ref?.child("status").setValue("")
+        self.view.removeFromSuperview()
+    }
+    
     @IBAction func endDisc(_ sender: Any) {
         self.view.removeFromSuperview()
     }

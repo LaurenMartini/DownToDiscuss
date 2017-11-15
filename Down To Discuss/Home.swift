@@ -13,6 +13,7 @@ import Firebase
 import FirebaseDatabase
 
 //global variables originally in Home
+
 var curLat = 0.0
 var curLong = 0.0
 var disNum = 0
@@ -27,8 +28,6 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     @IBOutlet var Map: MKMapView!
     
     //QUESTION: idk what is wrong here but it keeps saying expected declaration on second line...
-//    var ref: DatabaseReference!
-//    ref = Database.database().reference()
     
     //required for current location
     let manager = CLLocationManager()
@@ -36,35 +35,13 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
        // let location = locations[0]
         
-        let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
-        
-//        let myLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-        
-        //let exLocation = CLLocationCoordinate2DMake(37.876032, -122.258806)
-        
-        let region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
-        
-        Map.setRegion(region, animated: false)
-        
-        addOtherDiscussions(manager, didUpdateLocations: [manager.location!])
-        
-        discussionReached(manager, didUpdateLocations: [manager.location!])
-        
-        //fix to add user's created event to the map
-        if (eventCreated == 1) {
-            addNewDiscussionMarker(manager, didUpdateLocations: [manager.location!])
-        }
-        if (ownerEndedEvent == 1) {
-            showOwnerPoints(sender: self)
-        }
-        
         self.Map.showsUserLocation = true
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        ref = Database.database().reference()
         //current location code section
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest//kCLLocationAccuracyKilometer
@@ -73,20 +50,81 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         manager.requestAlwaysAuthorization() //STILL BROKEN!!
         manager.startUpdatingLocation()
         
-        //BROKEN CODE RIGHT NOW :( NEED TO FIGURE OUT HOW TO FIX AUTHORIZATION ISSUE
-//        Map.setCenter(exLocation, animated: true)
-//
-//        addOtherDiscussions(manager, didUpdateLocations: [manager.location!])
-//
-//        discussionReached(manager, didUpdateLocations: [manager.location!])
-//
-//        //fix to add user's created event to the map
-//        if (eventCreated == 1) {
-//            addNewDiscussionMarker(manager, didUpdateLocations: [manager.location!])
-//        }
-//        if (ownerEndedEvent == 1) {
-//            showOwnerPoints(sender: self)
-//        }
+        let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+        
+        //        let myLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+        
+        //let exLocation = CLLocationCoordinate2DMake(37.876032, -122.258806)
+        
+        if (currHost == 1) {
+            exLocation = eventList[2].location
+        }
+        
+        let region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+        
+        Map.setRegion(region, animated: false)
+        addOtherDiscussions()
+        
+        //fix to add user's created event to the map
+        if (eventCreated == 1) {
+            addNewDiscussionMarker()
+        }
+        
+        let statusRef = ref?.child("status")
+        
+        statusRef?.observe(DataEventType.value, with: { (snapshot) in
+            
+            // do config based off status
+            let status = snapshot.value as? String ?? ""
+            
+            //switch statement based on the status
+            switch status {
+            case "userInform":
+                //if user is host get notified that a guest is on their way
+                if (currHost == 1) {
+                    //display guest on their way window
+                }
+                if (currHost == 0) {
+                    self.userWalk(sender:self)
+                    self.showArriveView(sender: self)
+                }
+                break
+            case "userReqJoin":
+                //if user is host get notified that guest is here and wants to join
+                if (currHost == 1) {
+                    //notification that guest is here
+                }
+                break
+            case "guestConfirmed":
+                //if user is guest -> show accepted window and start timer on both windows
+                if (currHost == 0) {
+                    //show accepted window
+                }
+                //start timer? Is this even needed?
+                break
+            case "guestRejected":
+                //if user is guest and host rejected them
+                if (currHost == 0) {
+                    //show rejected window
+                }
+                break
+            case "discussionEnded":
+                //both users are notified that event has ended
+                //guest gets rating screen and points
+                //host gets points
+                if (currHost == 1) {
+                    self.showOwnerPoints(sender: self)
+                } else {
+                    self.showDisEnd(sender: self)
+                }
+                break
+            case "":
+                break
+            default:
+                print("no valid status!")
+            }
+        })
+        
     }
     
 //    override func viewDidAppear(_ animated: Bool) {
@@ -98,7 +136,7 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func addOtherDiscussions(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func addOtherDiscussions() {
         let location = exLocation //was locations.first for current Location
         var y = 0
         while y < 5 {
@@ -117,7 +155,7 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         }
     }
     
-    func addNewDiscussionMarker(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func addNewDiscussionMarker() {
         //to add a waypoint to the user's location if they created a discussion
         let location = exLocation
         
@@ -129,7 +167,9 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         eventList.append(newEvent)
     }
     
-    func discussionReached(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    /* ADD THIS FUNCTION CALL??
+     discussionReached()*/
+    func discussionReached() {
         //show alert when within range of location
         let location = exLocation
         
@@ -188,11 +228,7 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
                 }
                 num += 1
             }
-            if (eventList[num].user.name == "Amber") {
-                showOwnerView(sender: self)
-            } else {
-                showPopup(sender: self)
-            }
+            showPopup(sender:self)
         }
     }
 
@@ -208,15 +244,6 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBAction func showDisEnd(_ sender: Any) {
         let popUpVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "endDiscussion") as! DiscussionEndPopUpController
-        self.addChildViewController(popUpVC)
-        
-        popUpVC.view.frame = self.view.frame
-        self.view.addSubview(popUpVC.view)
-        popUpVC.didMove(toParentViewController: self)
-    }
-    
-    @IBAction func showOwnerView(_ sender: Any) {
-        let popUpVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "eventOwn") as! EventOwner
         self.addChildViewController(popUpVC)
         
         popUpVC.view.frame = self.view.frame
@@ -245,9 +272,8 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     @IBAction func userWalk(_ sender: Any) {
         //move center of map until location = one of the events
         exLocation = CLLocationCoordinate2DMake(moveLat, moveLong)
-//        var tempLoc = CLLocationCoordinate2DMake(moveLat, moveLong)
-//        Map.setCenter(tempLoc, animated: true)
-        showArriveView(sender: self)
+        let tempLoc = CLLocationCoordinate2DMake(moveLat, moveLong)
+        Map.setCenter(tempLoc, animated: true)
     }
 }
 
@@ -382,6 +408,22 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
 //SEGUE PERFORM CALL INSIDE MAP VIEW
 //performSegue(withIdentifier: "popUp", sender: self)
+
+//WORKS NOW BUT OLD VERSION WHEN I HAD A CURRENT LOCATION
+//        Map.setCenter(exLocation, animated: true)
+//
+//        addOtherDiscussions(manager, didUpdateLocations: [manager.location!])
+//
+//        discussionReached(manager, didUpdateLocations: [manager.location!])
+//
+//        //fix to add user's created event to the map
+//        if (eventCreated == 1) {
+//            addNewDiscussionMarker(manager, didUpdateLocations: [manager.location!])
+//        }
+//        if (ownerEndedEvent == 1) {
+//            showOwnerPoints(sender: self)
+//        }
+
 
 //MISC
 //circle view

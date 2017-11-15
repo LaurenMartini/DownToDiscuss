@@ -21,6 +21,11 @@ class ArrivedViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func joinDiscussionPressed(_ sender: UIButton) {
+        ref?.child("status").setValue("userReqJoin")
+        self.view.removeFromSuperview()
+    }
+    
     @IBAction func closePoints(_ sender: Any) {
         self.view.removeFromSuperview()
     }

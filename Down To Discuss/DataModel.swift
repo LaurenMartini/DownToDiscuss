@@ -13,14 +13,19 @@ import UIKit
 //var exLocation = CLLocationCoordinate2DMake(37.876032, -122.258806)
 
 //default main user
-var currentUser = Profile(name: "Amber", userPic: UIImage(named: "6.jpg")!, userRating: UIImage(named: "fourStars.png")!)
+import FirebaseDatabase
+
+// reference to our database
+var ref: DatabaseReference?
+
+var currentUser = Profile(name: currUser, userPic: UIImage(named: "6.jpg")!, userRating: UIImage(named: "fourStars.png")!, hostStatus: 0)
 
 //default user database
-var user1 = Profile(name:"Alice", userPic: UIImage(named: "1.jpg")!, userRating: UIImage(named: "fourStars.png")!)
-var user2 = Profile(name:"Bob", userPic: UIImage(named: "2.jpg")!, userRating: UIImage(named: "threeStars.png")!)
-var user3 = Profile(name:"Charlie", userPic: UIImage(named: "4.jpg")!, userRating: UIImage(named: "fiveStars.png")!)
-var user4 = Profile(name:"David", userPic: UIImage(named: "3.jpg")!, userRating: UIImage(named: "twoStars.png")!)
-var user5 = Profile(name:"Ellie", userPic: UIImage(named: "5.jpg")!, userRating: UIImage(named: "threeStars.png")!)
+var user1 = Profile(name:"Alice", userPic: UIImage(named: "1.jpg")!, userRating: UIImage(named: "fourStars.png")!, hostStatus: 1)
+var user2 = Profile(name:"Bob", userPic: UIImage(named: "2.jpg")!, userRating: UIImage(named: "threeStars.png")!, hostStatus: 1)
+var user3 = Profile(name:"Charlie", userPic: UIImage(named: "4.jpg")!, userRating: UIImage(named: "fiveStars.png")!, hostStatus: 1)
+var user4 = Profile(name:"David", userPic: UIImage(named: "3.jpg")!, userRating: UIImage(named: "twoStars.png")!, hostStatus: 1)
+var user5 = Profile(name:"Ellie", userPic: UIImage(named: "5.jpg")!, userRating: UIImage(named: "threeStars.png")!, hostStatus: 1)
 
 //default events
 var eventList:[Events] = [
