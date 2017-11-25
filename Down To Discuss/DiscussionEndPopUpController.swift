@@ -112,19 +112,19 @@ class DiscussionEndPopUpController: UIViewController, UITextFieldDelegate{
     }
     
     @IBAction func openMindPressed(_ sender: UIButton) {
-        (sender as AnyObject).setImage(UIImage(named: "create.png"), for: UIControlState.normal)
+        //(sender as AnyObject).setImage(UIImage(named: "create.png"), for: UIControlState.normal)
     }
     
     @IBAction func goodConvoPressed(_ sender: UIButton) {
-        (sender as AnyObject).setImage(UIImage(named: "create.png"), for: UIControlState.normal)
+        //(sender as AnyObject).setImage(UIImage(named: "create.png"), for: UIControlState.normal)
     }
     
     @IBAction func domineeringPressed(_ sender: UIButton) {
-        (sender as AnyObject).setImage(UIImage(named: "create.png"), for: UIControlState.normal)
+        //(sender as AnyObject).setImage(UIImage(named: "create.png"), for: UIControlState.normal)
     }
     
     @IBAction func closeMindPressed(_ sender: UIButton) {
-        (sender as AnyObject).setImage(UIImage(named: "create.png"), for: UIControlState.normal)
+        //(sender as AnyObject).setImage(UIImage(named: "create.png"), for: UIControlState.normal)
     }
     
     
