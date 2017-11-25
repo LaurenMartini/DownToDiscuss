@@ -15,6 +15,7 @@
 		DF1169871FC95EED00C4554C /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1169861FC95EEC00C4554C /* Review.swift */; };
 		DF116C911FBC24AD00C3C740 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF116C901FBC24AD00C3C740 /* LoginController.swift */; };
 		DF116C931FBC2EC700C3C740 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF116C921FBC2EC700C3C740 /* ProfileController.swift */; };
+		DF62D4921FC9FF3900E4F8F3 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62D4911FC9FF3900E4F8F3 /* LocationSearchTable.swift */; };
 		DF696C301FB99AF0006A3DAA /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF696C2A1FB99AEE006A3DAA /* 4.jpg */; };
 		DF696C311FB99AF0006A3DAA /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF696C2B1FB99AEE006A3DAA /* 1.jpg */; };
 		DF696C321FB99AF0006A3DAA /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF696C2C1FB99AEF006A3DAA /* 6.jpg */; };
@@ -88,6 +89,7 @@
 		DF1169861FC95EEC00C4554C /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		DF116C901FBC24AD00C3C740 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		DF116C921FBC2EC700C3C740 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		DF62D4911FC9FF3900E4F8F3 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		DF696C2A1FB99AEE006A3DAA /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 4.jpg; path = ../../goodpics/4.jpg; sourceTree = "<group>"; };
 		DF696C2B1FB99AEE006A3DAA /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.jpg; path = ../../goodpics/1.jpg; sourceTree = "<group>"; };
 		DF696C2C1FB99AEF006A3DAA /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 6.jpg; path = ../../goodpics/6.jpg; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				DFE52D061FB009E700AFD3B8 /* IntenseTopics.swift */,
 				DFE52D081FB0260700AFD3B8 /* CreateDiscussion.swift */,
 				DF6C4FB01FAC1A0E003CBE57 /* Main.storyboard */,
+				DF62D4911FC9FF3900E4F8F3 /* LocationSearchTable.swift */,
 				DF1169821FC8E52900C4554C /* HostInfoController.swift */,
 				DF1169801FC8D51900C4554C /* ReviewViewController.swift */,
 				DF11697E1FC8C49600C4554C /* HostProfileController.swift */,
@@ -526,6 +529,7 @@
 				DFE168CD1FB2DC4100D580B5 /* OwnerPointsViewController.swift in Sources */,
 				DFE168AD1FB106F500D580B5 /* Events.swift in Sources */,
 				DFE52CEC1FAC290E00AFD3B8 /* Profile.swift in Sources */,
+				DF62D4921FC9FF3900E4F8F3 /* LocationSearchTable.swift in Sources */,
 				DFE168AF1FB1537200D580B5 /* MapAnnotations.swift in Sources */,
 				DF116C931FBC2EC700C3C740 /* ProfileController.swift in Sources */,
 				DFBB23091FBC614300FFC70B /* HostConfirmController.swift in Sources */,

@@ -22,6 +22,7 @@ var moveLat = 0.0
 var moveLong = 0.0
 var userWalked = 0
 var startTime = 0
+var filtered = 0
 
 // userPos = UIImage(named: "blueCircle.png")
 
@@ -31,6 +32,9 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     //required for current location
     let manager = CLLocationManager()
+    
+    //create property for the UISearchController
+    var resultSearchController:UISearchController? = nil
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
        // let location = locations[0]
@@ -64,6 +68,28 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         
         Map.setRegion(region, animated: false)
         addOtherDiscussions()
+        
+//        //set up search results table
+        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
+        resultSearchController = UISearchController(searchResultsController: locationSearchTable)
+        resultSearchController?.searchResultsUpdater = locationSearchTable as UISearchResultsUpdating
+        
+        //set up search bar
+        let searchBar = resultSearchController!.searchBar
+        searchBar.sizeToFit()
+        searchBar.placeholder = "Search for topic"
+        navigationItem.titleView = resultSearchController?.searchBar
+        
+        //configure the UISearchController appearance
+        resultSearchController?.hidesNavigationBarDuringPresentation = false
+        resultSearchController?.dimsBackgroundDuringPresentation = true
+        definesPresentationContext = true
+        
+        //passes a handle of mapView from the main View Controller onto the locationSearchTable
+        locationSearchTable.mapView = Map
+        
+        //pass controller to locationSearchTable
+        locationSearchTable.getControllerCreatedInHome(sController: resultSearchController!)
         
         //fix to add user's created event to the map
         if (eventCreated == 1) {
@@ -844,6 +870,16 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
             }
             showPopup(sender:self)
         }
+    }
+    
+    //SEARCH BAR CODE - MOVED TO LOCATION SEARCH TABLE
+    func searchBarIsEmpty() -> Bool {
+        return resultSearchController?.searchBar.text?.isEmpty ?? true
+    }
+    
+    func isFiltering() -> Bool {
+//        ref?.child("status").setValue("filterResults")
+        return (resultSearchController?.isActive)! && !searchBarIsEmpty()
     }
 
     //POP UP CODE
