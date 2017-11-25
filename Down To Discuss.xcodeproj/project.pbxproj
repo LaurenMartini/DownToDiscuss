@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5657647831B36EFD42ACCA80 /* Pods_Down_To_Discuss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B77C73C7AFC8085C82F6C3F /* Pods_Down_To_Discuss.framework */; };
 		95E1F2D677F9AFC5E2BFBBE6 /* Pods_Down_To_DiscussTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C5C75C0EA9C54648651069 /* Pods_Down_To_DiscussTests.framework */; };
+		DF11697F1FC8C49600C4554C /* HostProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF11697E1FC8C49600C4554C /* HostProfileController.swift */; };
+		DF1169811FC8D51900C4554C /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1169801FC8D51900C4554C /* ReviewViewController.swift */; };
+		DF1169831FC8E52900C4554C /* HostInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1169821FC8E52900C4554C /* HostInfoController.swift */; };
 		DF116C911FBC24AD00C3C740 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF116C901FBC24AD00C3C740 /* LoginController.swift */; };
 		DF116C931FBC2EC700C3C740 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF116C921FBC2EC700C3C740 /* ProfileController.swift */; };
 		DF696C301FB99AF0006A3DAA /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF696C2A1FB99AEE006A3DAA /* 4.jpg */; };
@@ -24,6 +27,8 @@
 		DF6C4FB41FAC1A0E003CBE57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF6C4FB31FAC1A0E003CBE57 /* Assets.xcassets */; };
 		DF6C4FB71FAC1A0E003CBE57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF6C4FB51FAC1A0E003CBE57 /* LaunchScreen.storyboard */; };
 		DF6C4FC21FAC1A0E003CBE57 /* Down_To_DiscussTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6C4FC11FAC1A0E003CBE57 /* Down_To_DiscussTests.swift */; };
+		DF737C1D1FC50428008041E5 /* TutorialContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF737C1C1FC50428008041E5 /* TutorialContentViewController.swift */; };
+		DF737C1F1FC510F2008041E5 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF737C1E1FC510F2008041E5 /* TutorialViewController.swift */; };
 		DFBB23091FBC614300FFC70B /* HostConfirmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBB23081FBC614300FFC70B /* HostConfirmController.swift */; };
 		DFBB230B1FBC619A00FFC70B /* HostNotifiedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBB230A1FBC619A00FFC70B /* HostNotifiedController.swift */; };
 		DFBB230D1FBC6BAB00FFC70B /* UserRejectedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBB230C1FBC6BAB00FFC70B /* UserRejectedController.swift */; };
@@ -76,6 +81,9 @@
 		9755652C8ED77057323D22E0 /* Pods-Down To Discuss.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Down To Discuss.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Down To Discuss/Pods-Down To Discuss.debug.xcconfig"; sourceTree = "<group>"; };
 		D839EA810AD78392FF2F6DDF /* Pods-Down To DiscussTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Down To DiscussTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Down To DiscussTests/Pods-Down To DiscussTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DC3492E3B853AEB40C44CFEF /* Pods-Down To DiscussTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Down To DiscussTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Down To DiscussTests/Pods-Down To DiscussTests.release.xcconfig"; sourceTree = "<group>"; };
+		DF11697E1FC8C49600C4554C /* HostProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostProfileController.swift; sourceTree = "<group>"; };
+		DF1169801FC8D51900C4554C /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		DF1169821FC8E52900C4554C /* HostInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostInfoController.swift; sourceTree = "<group>"; };
 		DF116C901FBC24AD00C3C740 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		DF116C921FBC2EC700C3C740 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		DF696C2A1FB99AEE006A3DAA /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 4.jpg; path = ../../goodpics/4.jpg; sourceTree = "<group>"; };
@@ -95,6 +103,8 @@
 		DF6C4FBD1FAC1A0E003CBE57 /* Down To DiscussTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Down To DiscussTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF6C4FC11FAC1A0E003CBE57 /* Down_To_DiscussTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Down_To_DiscussTests.swift; sourceTree = "<group>"; };
 		DF6C4FC31FAC1A0E003CBE57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF737C1C1FC50428008041E5 /* TutorialContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialContentViewController.swift; sourceTree = "<group>"; };
+		DF737C1E1FC510F2008041E5 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		DFBB23081FBC614300FFC70B /* HostConfirmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostConfirmController.swift; sourceTree = "<group>"; };
 		DFBB230A1FBC619A00FFC70B /* HostNotifiedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostNotifiedController.swift; sourceTree = "<group>"; };
 		DFBB230C1FBC6BAB00FFC70B /* UserRejectedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRejectedController.swift; sourceTree = "<group>"; };
@@ -198,6 +208,11 @@
 				DFE52D061FB009E700AFD3B8 /* IntenseTopics.swift */,
 				DFE52D081FB0260700AFD3B8 /* CreateDiscussion.swift */,
 				DF6C4FB01FAC1A0E003CBE57 /* Main.storyboard */,
+				DF1169821FC8E52900C4554C /* HostInfoController.swift */,
+				DF1169801FC8D51900C4554C /* ReviewViewController.swift */,
+				DF11697E1FC8C49600C4554C /* HostProfileController.swift */,
+				DF737C1E1FC510F2008041E5 /* TutorialViewController.swift */,
+				DF737C1C1FC50428008041E5 /* TutorialContentViewController.swift */,
 				DFBB230E1FBC6BF400FFC70B /* DiscussionInProgressController.swift */,
 				DFBB230C1FBC6BAB00FFC70B /* UserRejectedController.swift */,
 				DFBB230A1FBC619A00FFC70B /* HostNotifiedController.swift */,
@@ -501,6 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF737C1D1FC50428008041E5 /* TutorialContentViewController.swift in Sources */,
 				DFBB230F1FBC6BF400FFC70B /* DiscussionInProgressController.swift in Sources */,
 				DFBB230D1FBC6BAB00FFC70B /* UserRejectedController.swift in Sources */,
 				DF6C4FAF1FAC1A0E003CBE57 /* Home.swift in Sources */,
@@ -511,11 +527,15 @@
 				DF116C931FBC2EC700C3C740 /* ProfileController.swift in Sources */,
 				DFBB23091FBC614300FFC70B /* HostConfirmController.swift in Sources */,
 				DFE52CF21FAC383E00AFD3B8 /* PopUpViewController.swift in Sources */,
+				DF737C1F1FC510F2008041E5 /* TutorialViewController.swift in Sources */,
 				DFE52CEE1FAC2BA300AFD3B8 /* MainTabBarController.swift in Sources */,
 				DFBB230B1FBC619A00FFC70B /* HostNotifiedController.swift in Sources */,
 				DFE52CF41FACE5B400AFD3B8 /* DataModel.swift in Sources */,
 				DFE52D0B1FB0439B00AFD3B8 /* FunTopics.swift in Sources */,
 				DFE52D071FB009E700AFD3B8 /* IntenseTopics.swift in Sources */,
+				DF1169831FC8E52900C4554C /* HostInfoController.swift in Sources */,
+				DF1169811FC8D51900C4554C /* ReviewViewController.swift in Sources */,
+				DF11697F1FC8C49600C4554C /* HostProfileController.swift in Sources */,
 				DF6C4FAB1FAC1A0E003CBE57 /* AppDelegate.swift in Sources */,
 				DF116C911FBC24AD00C3C740 /* LoginController.swift in Sources */,
 				DF6C4FAD1FAC1A0E003CBE57 /* Leaderboard.swift in Sources */,

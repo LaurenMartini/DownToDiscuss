@@ -8,6 +8,9 @@
 
 import UIKit
 
+var profileCalled = 0
+var currentDis = -1
+
 class PopUpViewController: UIViewController {
 
     @IBOutlet var disTitle: UILabel!
@@ -18,7 +21,7 @@ class PopUpViewController: UIViewController {
     
     @IBOutlet var sRating: UIImageView!
     
-    @IBOutlet var pPic: UIImageView!
+    //@IBOutlet var pPic: UIImageView!
     
     @IBOutlet var pointAmt: UILabel!
     
@@ -27,6 +30,14 @@ class PopUpViewController: UIViewController {
     @IBOutlet var goEndButton: UIButton!
     
     @IBOutlet var chatEditButton: UIButton!
+    
+    @IBOutlet var hostName: UILabel!
+    
+    @IBOutlet var usrInterest: UILabel!
+    
+    @IBOutlet var usrThere: UILabel!
+    
+    @IBOutlet var hostPic: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,21 +51,28 @@ class PopUpViewController: UIViewController {
             num += 1
         }
         
+        currentDis = num
+        
+        hostName.text = eventList[num].user.name
         disTitle.text = eventList[num].discussionTitle
         sRating.image = eventList[num].user.userRating
-        funTop.text = eventList[num].funTopic
-        intenseTop.text = eventList[num].intenseTopic
-        pPic.image = eventList[num].user.userPic
+        funTop.text = "Fun Topic: " + eventList[num].funTopic
+        intenseTop.text = "Intense Topic: " + eventList[num].intenseTopic
+        hostPic.setImage(eventList[num].user.userPic, for: UIControlState.normal)
         desInfo.text = eventList[num].description
+        usrInterest.text = "Interested: " + (String)(eventList[num].usersInterested)
+        usrThere.text = "Currently Discussing: " + (String)(eventList[num].usersThere)
         
-        if (currHost == 1 && num == 2){
+        if (currHost == 1){
             //make sure that the edit/end event popup is displayed
             goEndButton.setTitle("End", for: UIControlState.normal)
             chatEditButton.setTitle("Edit", for: UIControlState.normal)
+            //disable profile pic
+            hostPic.isEnabled = false
             //also don't show points
             pointAmt.text = ""
         } else {
-            pointAmt.text = String(eventList[num].points) + " pts"
+            pointAmt.text = "Gain " + String(eventList[num].points) + " pts"
         }
     }
 
@@ -79,9 +97,15 @@ class PopUpViewController: UIViewController {
 //
 //    }
     
-    @IBAction func closePopUp(_ sender: Any) {
+    @IBAction func closePopUp(_ sender: UIButton) {
+        ref?.child("status").setValue("")
         self.view.removeFromSuperview()
     }
+    @IBAction func clickedOnProfile(_ sender: UIButton) {
+        ref?.child("status").setValue("profileClicked")
+        self.view.removeFromSuperview()
+    }
+    
     
 //    /* CREDIT FOR BOTH ANIMATE FUNCTIONS: Seemu Apps: YouTube Video - Swift - Pop Up View
 //     Tutorial */

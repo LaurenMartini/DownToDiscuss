@@ -29,15 +29,13 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet var Map: MKMapView!
     
-    //QUESTION: idk what is wrong here but it keeps saying expected declaration on second line...
-    
     //required for current location
     let manager = CLLocationManager()
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
        // let location = locations[0]
         
-        self.Map.showsUserLocation = true
+        //self.Map.showsUserLocation = true
     }
 
     override func viewDidLoad() {
@@ -46,11 +44,11 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         ref = Database.database().reference()
         //current location code section
         manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest//kCLLocationAccuracyKilometer
+        //manager.desiredAccuracy = kCLLocationAccuracyBest//kCLLocationAccuracyKilometer
         //manager.requestWhenInUseAuthorization()
         //temporarily adding this authorization to see if it fixes anything...
-        manager.requestAlwaysAuthorization() //STILL BROKEN!!
-        manager.startUpdatingLocation()
+        //manager.requestAlwaysAuthorization() //STILL BROKEN!!
+        //manager.startUpdatingLocation()
         
         let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
         
@@ -85,15 +83,44 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
             
             //switch statement based on the status
             switch status {
+            case "profileClicked":
+                //guest gets to view host profile
+                if (currHost == 0) {
+                    //self.showHostProfile(sender: self)
+                    self.showHostInfo(sender: self)
+                }
+                break
+            case "returnToInfo":
+                if (currHost == 0) {
+                    self.showPopup(sender: self)
+                }
+                break
+            case "checkReviews":
+                if (currHost == 0) {
+                    self.showReviewPage(sender: self)
+                }
+                break
+            case "checkQuestions":
+                if (currHost == 0) {
+                    
+                }
+                break
             case "userInform":
                 //if user is host get notified that a guest is on their way
                 if (currHost == 1) {
                     self.showHostNotify(sender: self)
+                    if (currentDis > -1) {
+                        eventList[currentDis].usersInterested += 1
+                    }
                 }
                 if (currHost == 0) {
-                    self.userWalk(sender:self)
-                    self.showArriveView(sender: self)
+                    //self.discussionReached()
+                    self.goToLocation(num: currentDis)
                 }
+//                if (currHost == 0) {
+//                    self.userWalk(sender:self)
+//                    self.showArriveView(sender: self)
+//                }
                 break
             case "userReqJoin":
                 //if user is host get notified that guest is here and wants to join
@@ -142,7 +169,7 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     }
     
     func addOtherDiscussions() {
-        let location = exLocation //was locations.first for current Location
+        _ = exLocation //was locations.first for current Location
         var y = 0
         while y < 5 {
             //location
@@ -164,7 +191,7 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         //to add a waypoint to the user's location if they created a discussion
         let location = exLocation
         
-        let newEvent = Events(user: currentUser, discussionTitle: eventName, location:  CLLocationCoordinate2DMake(location.latitude, location.longitude), funTopic: "", intenseTopic: "", description: "", points: 0)
+        let newEvent = Events(user: currentUser, discussionTitle: eventName, location:  CLLocationCoordinate2DMake(location.latitude, location.longitude), funTopic: "", intenseTopic: "", description: "", points: 0, usersInterested: 0, usersThere: 0)
         
         let annotation = MapAnnotations(coordinate: location, title: eventName, subtitle: "")
         Map.addAnnotation(annotation)
@@ -172,29 +199,410 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         eventList.append(newEvent)
     }
     
-    /* ADD THIS FUNCTION CALL??
-     discussionReached()*/
-    func discussionReached() {
-        //show alert when within range of location
-        let location = exLocation
-        
-        var num = 0
-        
-        while (num < 5) {
-            if (eventList[num].location.latitude == location.latitude && eventList[num].location.longitude == location.longitude) {
-                let ac = UIAlertController(title: "You have arrived!", message: "Ready to discuss?", preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "Discuss", style: .default, handler: {(action) in ac.dismiss(animated: true, completion: nil)
-                    //do something here
-                }))
-                ac.addAction(UIAlertAction(title: "Cancel", style: .default, handler: {(action) in ac.dismiss(animated: true, completion: nil)
-                    //do something here
-                }))
-                disNum = num
+    func goToLocation(num: Int) {
+        let startLoc = CLLocationCoordinate2DMake(exLocation.latitude, exLocation.longitude)
+        //switch on int and change route depending on exLocation start
+        if (startLoc.latitude == 37.876032 && startLoc.longitude == -122.258806) {
+            switch num {
+            case 0:
+                //route to Food & Stuff from start
+                //first point on route
+                exLocation = CLLocationCoordinate2DMake(37.875362, -122.258330)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                var region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    //next point on route
+                    exLocation.latitude = eventList[num].location.latitude
+                    exLocation.longitude = eventList[num].location.longitude
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
                 break
+            case 1:
+                //route to Dogs from start
+                exLocation = CLLocationCoordinate2DMake(37.876323, -122.258512)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                var region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    exLocation.latitude = 37.877212
+                    exLocation.longitude = -122.258716
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    exLocation.latitude = 37.877373
+                    exLocation.longitude = -122.257182
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
+                    exLocation.latitude = 37.877424
+                    exLocation.longitude = -122.256903
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
+                    exLocation.latitude = 37.878025
+                    exLocation.longitude = -122.257042
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+                    //last point on route
+                    exLocation.latitude = eventList[num].location.latitude
+                    exLocation.longitude = eventList[num].location.longitude
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 12.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
+                break
+            case 2:
+                //route to Free Movie!! from start
+                //first point on route
+                exLocation = CLLocationCoordinate2DMake(37.875362, -122.258330)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                var region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    exLocation.latitude = 37.874985
+                    exLocation.longitude = -122.260121
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    exLocation.latitude = 37.874375
+                    exLocation.longitude = -122.261001
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
+                    exLocation.latitude = 37.873426
+                    exLocation.longitude = -122.261312
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
+                    //last point on route
+                    exLocation.latitude = eventList[num].location.latitude
+                    exLocation.longitude = eventList[num].location.longitude
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
+                break
+            case 3:
+                //route to Substances and Songs from start
+                //just do start and end
+                exLocation = CLLocationCoordinate2DMake(eventList[num].location.latitude, eventList[num].location.longitude)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                let region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
+                break
+            case 4:
+                //route to Coffee Chat from start
+                exLocation = CLLocationCoordinate2DMake(37.875362, -122.258330)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                var region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    exLocation.latitude = 37.874985
+                    exLocation.longitude = -122.260121
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    exLocation.latitude = 37.874375
+                    exLocation.longitude = -122.261001
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
+                    exLocation.latitude = 37.873426
+                    exLocation.longitude = -122.261312
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
+                    exLocation.latitude = 37.872745
+                    exLocation.longitude = -122.261473
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+                    exLocation.latitude = 37.872203
+                    exLocation.longitude = -122.261570
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 12.0) {
+                    //last point on route
+                    exLocation.latitude = eventList[num].location.latitude
+                    exLocation.longitude = eventList[num].location.longitude
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 14.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
+                break
+            default:
+                print("invalid num")
             }
-            num += 1
+        } else if (startLoc.latitude == 37.875032 && startLoc.longitude == -122.257806) {
+            //start at Food & Stuff
+            //go to free movies or coffee chat
+            //all others -> directly go to location
+            switch num {
+            case 1:
+                //go directly to Dogs
+                exLocation = CLLocationCoordinate2DMake(eventList[num].location.latitude, eventList[num].location.longitude)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                let region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
+                break
+            case 2:
+                //walk to Free Movie!!
+                //first point on route
+                exLocation = CLLocationCoordinate2DMake(37.874985, -122.260121)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                var region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    exLocation.latitude = 37.874375
+                    exLocation.longitude = -122.261001
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    exLocation.latitude = 37.873426
+                    exLocation.longitude = -122.261312
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
+                    //last point on route
+                    exLocation.latitude = eventList[num].location.latitude
+                    exLocation.longitude = eventList[num].location.longitude
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
+
+                break
+            case 3:
+                //go directly to Substances and Songs
+                exLocation = CLLocationCoordinate2DMake(eventList[num].location.latitude, eventList[num].location.longitude)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                let region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
+                break
+            case 4:
+                //walk to Coffee Chat
+                exLocation = CLLocationCoordinate2DMake(37.874985, -122.260121)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                var region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    exLocation.latitude = 37.874375
+                    exLocation.longitude = -122.261001
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
+                    exLocation.latitude = 37.873426
+                    exLocation.longitude = -122.261312
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
+                    exLocation.latitude = 37.872745
+                    exLocation.longitude = -122.261473
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+                    exLocation.latitude = 37.872203
+                    exLocation.longitude = -122.261570
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 12.0) {
+                    //last point on route
+                    exLocation.latitude = eventList[num].location.latitude
+                    exLocation.longitude = eventList[num].location.longitude
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 14.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
+                break
+            default:
+                print("invalid num")
+            }
+        } else if (startLoc.latitude == 37.878032 && startLoc.longitude == -122.256806) {
+            //start at Dogs
+            //go to any directly
+            switch num {
+            case 0:
+                break
+            case 2:
+                break
+            case 3:
+                break
+            case 4:
+                break
+            default:
+                print("invalid num")
+            }
+        } else if (startLoc.latitude == 37.873032 && startLoc.longitude == -122.261806) {
+            //start at Free Movie!!!
+            //go to Food & Stuff or Coffee Chat
+            //go to all others directly
+            switch num {
+            case 0:
+                break
+            case 1:
+                break
+            case 3:
+                break
+            case 4:
+                break
+            default:
+                print("invalid num")
+            }
+        } else if (startLoc.latitude == 37.880032 && startLoc.longitude == -122.254806) {
+            //start at substances and songs
+            //go to all directly
+            switch num {
+            case 0:
+                break
+            case 1:
+                break
+            case 2:
+                break
+            case 4:
+                break
+            default:
+                print("invalid num")
+            }
+        } else if (startLoc.latitude == 37.872313 && startLoc.longitude == -122.260958) {
+            //start at Coffee Chat
+            //go to Free Movies or Food & Stuff
+            //go to all others directly
+            switch num {
+            case 0:
+                break
+            case 1:
+                break
+            case 2:
+                break
+            case 3:
+                break
+            default:
+                print("invalid num")
+            }
         }
     }
+    
+//    func discussionReached() {
+//        var num = 0
+//
+//        while (num < eventList.count) {
+//            if (exLocation.latitude == eventList[num].location.latitude && exLocation.longitude == eventList[num].location.longitude) {
+//                disNum = num
+//
+//                self.showArriveView(sender: self)
+//                break
+//            }
+//            num += 1
+//        }
+//    }
+    /* ADD THIS FUNCTION CALL??
+     discussionReached()*/
+//    func discussionReached() {
+//        //show alert when within range of location
+//        let location = exLocation
+//
+//        var num = 0
+//
+//        while (num < 5) {
+//            if (eventList[num].location.latitude == location.latitude && eventList[num].location.longitude == location.longitude) {
+//                let ac = UIAlertController(title: "You have arrived!", message: "Ready to discuss?", preferredStyle: .alert)
+//                ac.addAction(UIAlertAction(title: "Discuss", style: .default, handler: {(action) in ac.dismiss(animated: true, completion: nil)
+//                    //do something here
+//                }))
+//                ac.addAction(UIAlertAction(title: "Cancel", style: .default, handler: {(action) in ac.dismiss(animated: true, completion: nil)
+//                    //do something here
+//                }))
+//                disNum = num
+//                break
+//            }
+//            num += 1
+//        }
+//    }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
         let identifier = "MapAnnotations"
@@ -249,6 +657,15 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBAction func showDisEnd(_ sender: Any) {
         let popUpVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "endDiscussion") as! DiscussionEndPopUpController
+        self.addChildViewController(popUpVC)
+        
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        popUpVC.didMove(toParentViewController: self)
+    }
+    
+    @IBAction func showHostInfo(_ sender: Any) {
+        let popUpVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "hostProfileBoard") as! HostInfoController
         self.addChildViewController(popUpVC)
         
         popUpVC.view.frame = self.view.frame
@@ -316,7 +733,39 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         let tempLoc = CLLocationCoordinate2DMake(moveLat, moveLong)
         Map.setCenter(tempLoc, animated: true)
     }
-}
+    
+    @IBAction func showHostProfile(_ sender: Any) {
+        let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "hostProfileBoard") as! HostProfileController
+        self.addChildViewController(popUpVC)
+        
+        if popUpVC.view != nil {
+            popUpVC.view.frame = self.view.frame
+            self.view.addSubview(popUpVC.view)
+            popUpVC.didMove(toParentViewController: self)
+        } else {
+            print("invalid")
+        }
+    }
+    
+    //MODIFY TO BE CORRECT PAGE
+    @IBAction func showReviewPage(_ sender: Any) {
+        let popUpVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "endDiscussion") as! DiscussionEndPopUpController
+        self.addChildViewController(popUpVC)
+        
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        popUpVC.didMove(toParentViewController: self)
+    }
+    
+    @IBAction func showQuestionPage(_ sender: Any) {
+        let popUpVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "endDiscussion") as! DiscussionEndPopUpController
+        self.addChildViewController(popUpVC)
+        
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        popUpVC.didMove(toParentViewController: self)
+    }
+ }
 
 /* CODE DUMP - OLD PARTS AND PIECES */
 

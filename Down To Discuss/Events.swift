@@ -31,8 +31,10 @@ class Events {
     var intenseTopic:String
     var description:String
     var points:Int
+    var usersInterested: Int
+    var usersThere: Int
     
-    init(user: Profile, discussionTitle: String, location: CLLocationCoordinate2D, funTopic: String, intenseTopic: String, description:String, points:Int) {
+    init(user: Profile, discussionTitle: String, location: CLLocationCoordinate2D, funTopic: String, intenseTopic: String, description:String, points:Int, usersInterested: Int, usersThere: Int) {
         self.user = user
         self.discussionTitle = discussionTitle
         self.location = location
@@ -40,5 +42,7 @@ class Events {
         self.intenseTopic = intenseTopic
         self.description = description
         self.points = points
+        self.usersInterested = usersInterested
+        self.usersThere = usersThere
     }
 }

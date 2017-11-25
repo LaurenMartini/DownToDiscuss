@@ -18,32 +18,52 @@ class LoginController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var loginButton: UIButton!
     
-    //textfield function
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let text = (loginField.text! as NSString).replacingCharacters(in: range, with: string)
-        if !text.isEmpty {
-            currUser = text
-            loginButton.isUserInteractionEnabled = true
-        } else {
-            loginButton.isUserInteractionEnabled = false
-        }
-        
-        return true
-    }
-    @IBAction func hostButtonPressed(_ sender: UIButton) {
-        currHost = 1
-    }
+    @IBOutlet var textFields: [UITextField]!
+    
+    @IBOutlet weak var passwordField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        self.loginField.delegate = self
         
-        //if text field isn't null
-        if (loginField.text?.isEmpty)! {
-            loginButton.isUserInteractionEnabled = false
+        // Do any additional setup after loading the view.
+        setupView()
+        self.loginField.delegate = self
+        self.passwordField.delegate = self
+        
+        //register view controller as observer
+        NotificationCenter.default.addObserver(self, selector: #selector(textDidChange(_:)), name: Notification.Name.UITextFieldTextDidChange, object: nil)
+    }
+    
+    func validate(_ textField: UITextField) -> (Bool, String?) {
+        guard let text = textField.text else {
+            return (false, nil)
         }
         
+        return (text.characters.count > 0, "This field cannot be empty.")
+    }
+        
+    @objc private func textDidChange(_ notification: Notification) {
+        var formIsValid = true
+        
+        textFields = [loginField, passwordField]
+        
+        for textField in textFields {
+            let (valid, _) = validate(textField)
+
+            guard valid else {
+                formIsValid = false
+                break
+            }
+        }
+        loginButton.isEnabled = formIsValid
+        currUser = loginField.text!
+        if (loginField.text == "LM") {
+            currHost = 1
+        }
+    }
+    
+    func setupView() {
+        loginButton.isEnabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,17 +71,14 @@ class LoginController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-//    func loginComplete() -> Bool {
-//        if (loginField.text != "") {
-//            currUser = loginField.text!
-//            return true
-//        }
-//        return false
-//    }
-    
     //hide keyboard when return is pressed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        loginField.resignFirstResponder()
+        switch textField {
+        case loginField:
+            passwordField.becomeFirstResponder()
+        default:
+            passwordField.resignFirstResponder()
+        }
         return true
     }
 
