@@ -12,6 +12,7 @@
 		DF11697F1FC8C49600C4554C /* HostProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF11697E1FC8C49600C4554C /* HostProfileController.swift */; };
 		DF1169811FC8D51900C4554C /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1169801FC8D51900C4554C /* ReviewViewController.swift */; };
 		DF1169831FC8E52900C4554C /* HostInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1169821FC8E52900C4554C /* HostInfoController.swift */; };
+		DF1169871FC95EED00C4554C /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1169861FC95EEC00C4554C /* Review.swift */; };
 		DF116C911FBC24AD00C3C740 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF116C901FBC24AD00C3C740 /* LoginController.swift */; };
 		DF116C931FBC2EC700C3C740 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF116C921FBC2EC700C3C740 /* ProfileController.swift */; };
 		DF696C301FB99AF0006A3DAA /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF696C2A1FB99AEE006A3DAA /* 4.jpg */; };
@@ -84,6 +85,7 @@
 		DF11697E1FC8C49600C4554C /* HostProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostProfileController.swift; sourceTree = "<group>"; };
 		DF1169801FC8D51900C4554C /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		DF1169821FC8E52900C4554C /* HostInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostInfoController.swift; sourceTree = "<group>"; };
+		DF1169861FC95EEC00C4554C /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		DF116C901FBC24AD00C3C740 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		DF116C921FBC2EC700C3C740 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		DF696C2A1FB99AEE006A3DAA /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 4.jpg; path = ../../goodpics/4.jpg; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				DFE52CEB1FAC290E00AFD3B8 /* Profile.swift */,
 				DF6C4FAC1FAC1A0E003CBE57 /* Leaderboard.swift */,
 				DF6C4FAE1FAC1A0E003CBE57 /* Home.swift */,
+				DF1169861FC95EEC00C4554C /* Review.swift */,
 				DFE168AE1FB1537200D580B5 /* MapAnnotations.swift */,
 				DFE52D061FB009E700AFD3B8 /* IntenseTopics.swift */,
 				DFE52D081FB0260700AFD3B8 /* CreateDiscussion.swift */,
@@ -536,6 +539,7 @@
 				DF1169831FC8E52900C4554C /* HostInfoController.swift in Sources */,
 				DF1169811FC8D51900C4554C /* ReviewViewController.swift in Sources */,
 				DF11697F1FC8C49600C4554C /* HostProfileController.swift in Sources */,
+				DF1169871FC95EED00C4554C /* Review.swift in Sources */,
 				DF6C4FAB1FAC1A0E003CBE57 /* AppDelegate.swift in Sources */,
 				DF116C911FBC24AD00C3C740 /* LoginController.swift in Sources */,
 				DF6C4FAD1FAC1A0E003CBE57 /* Leaderboard.swift in Sources */,

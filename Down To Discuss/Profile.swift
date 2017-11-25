@@ -17,12 +17,14 @@ class Profile {
     var userRating:UIImage
     var hostStatus:Int
     var totalPoints: Int
+    var reviewList = [Review]()
     
-    init(name: String, userPic:UIImage, userRating:UIImage, hostStatus:Int, totalPoints: Int) {
+    init(name: String, userPic:UIImage, userRating:UIImage, hostStatus:Int, totalPoints: Int, reviewList: [Review]) {
         self.name = name
         self.userPic = userPic
         self.userRating = userRating
         self.hostStatus = hostStatus
         self.totalPoints = totalPoints
+        self.reviewList = reviewList
     }
 }

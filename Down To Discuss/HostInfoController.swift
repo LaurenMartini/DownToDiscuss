@@ -41,6 +41,11 @@ class HostInfoController: UIViewController {
         self.view.removeFromSuperview()
     }
     
+    @IBAction func goToReviews(_ sender: UIButton) {
+        ref?.child("status").setValue("checkReviews")
+        self.view.removeFromSuperview()
+    }
+    
     /*
     // MARK: - Navigation
 

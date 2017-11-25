@@ -100,11 +100,6 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
                     self.showReviewPage(sender: self)
                 }
                 break
-            case "checkQuestions":
-                if (currHost == 0) {
-                    
-                }
-                break
             case "userInform":
                 //if user is host get notified that a guest is on their way
                 if (currHost == 1) {
@@ -147,7 +142,6 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
                     self.showOwnerPoints(sender: self)
                 } else {
                     self.showDisEnd(sender: self)
-                    startWalk = 0
                 }
                 break
             case "":
@@ -437,7 +431,6 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
                     //next point on route
                     self.showArriveView(sender: self)
                 }
-
                 break
             case 3:
                 //go directly to Substances and Songs
@@ -507,14 +500,59 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
             //go to any directly
             switch num {
             case 0:
+                exLocation = CLLocationCoordinate2DMake(eventList[num].location.latitude, eventList[num].location.longitude)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                let region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
                 break
             case 2:
+                exLocation = CLLocationCoordinate2DMake(eventList[num].location.latitude, eventList[num].location.longitude)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                let region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
                 break
             case 3:
+                exLocation = CLLocationCoordinate2DMake(eventList[num].location.latitude, eventList[num].location.longitude)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                let region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
                 break
             case 4:
+                exLocation = CLLocationCoordinate2DMake(eventList[num].location.latitude, eventList[num].location.longitude)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                let region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
                 break
             default:
+                exLocation = CLLocationCoordinate2DMake(eventList[num].location.latitude, eventList[num].location.longitude)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                let region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
                 print("invalid num")
             }
         } else if (startLoc.latitude == 37.873032 && startLoc.longitude == -122.261806) {
@@ -523,12 +561,87 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
             //go to all others directly
             switch num {
             case 0:
+                //first point on route
+                exLocation = CLLocationCoordinate2DMake(37.873426, -122.261312)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                var region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    exLocation.latitude = 37.874375
+                    exLocation.longitude = -122.261001
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    exLocation.latitude = 37.874985
+                    exLocation.longitude = -122.260121
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
+                    //last point on route
+                    exLocation.latitude = eventList[num].location.latitude
+                    exLocation.longitude = eventList[num].location.longitude
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
                 break
             case 1:
+                exLocation = CLLocationCoordinate2DMake(eventList[num].location.latitude, eventList[num].location.longitude)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                let region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
                 break
             case 3:
+                exLocation = CLLocationCoordinate2DMake(eventList[num].location.latitude, eventList[num].location.longitude)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                let region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
                 break
             case 4:
+                //first point on route
+                exLocation = CLLocationCoordinate2DMake(37.872203, -122.261570)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                var region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    exLocation.latitude = 37.872745
+                    exLocation.longitude = -122.261473
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    //last point on route
+                    exLocation.latitude = eventList[num].location.latitude
+                    exLocation.longitude = eventList[num].location.longitude
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
                 break
             default:
                 print("invalid num")
@@ -538,12 +651,48 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
             //go to all directly
             switch num {
             case 0:
+                exLocation = CLLocationCoordinate2DMake(eventList[num].location.latitude, eventList[num].location.longitude)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                let region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
                 break
             case 1:
+                exLocation = CLLocationCoordinate2DMake(eventList[num].location.latitude, eventList[num].location.longitude)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                let region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
                 break
             case 2:
+                exLocation = CLLocationCoordinate2DMake(eventList[num].location.latitude, eventList[num].location.longitude)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                let region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
                 break
             case 4:
+                exLocation = CLLocationCoordinate2DMake(eventList[num].location.latitude, eventList[num].location.longitude)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                let region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
                 break
             default:
                 print("invalid num")
@@ -554,55 +703,107 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
             //go to all others directly
             switch num {
             case 0:
+                //first point on route
+                exLocation = CLLocationCoordinate2DMake(37.872745, -122.261473)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                var region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    exLocation.latitude = 37.872203
+                    exLocation.longitude = -122.261570
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    exLocation.latitude = 37.873426
+                    exLocation.longitude = -122.261312
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
+                    exLocation.latitude = 37.874375
+                    exLocation.longitude = -122.261001
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
+                    exLocation.latitude = 37.874985
+                    exLocation.longitude = -122.260121
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+                    //last point on route
+                    exLocation.latitude = eventList[num].location.latitude
+                    exLocation.longitude = eventList[num].location.longitude
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 12.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
                 break
             case 1:
+                exLocation = CLLocationCoordinate2DMake(eventList[num].location.latitude, eventList[num].location.longitude)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                let region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
                 break
             case 2:
+                //first point on route
+                exLocation = CLLocationCoordinate2DMake(37.872745, -122.261473)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                var region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    exLocation.latitude = 37.872203
+                    exLocation.longitude = -122.261570
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    //last point on route
+                    exLocation.latitude = eventList[num].location.latitude
+                    exLocation.longitude = eventList[num].location.longitude
+                    region = MKCoordinateRegionMake(exLocation, span)
+                    self.Map.setRegion(region, animated: false)
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
                 break
             case 3:
+                exLocation = CLLocationCoordinate2DMake(eventList[num].location.latitude, eventList[num].location.longitude)
+                let span: MKCoordinateSpan = MKCoordinateSpanMake(0.008, 0.008)
+                let region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
+                Map.setRegion(region, animated: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    //next point on route
+                    self.showArriveView(sender: self)
+                }
                 break
             default:
                 print("invalid num")
             }
         }
     }
-    
-//    func discussionReached() {
-//        var num = 0
-//
-//        while (num < eventList.count) {
-//            if (exLocation.latitude == eventList[num].location.latitude && exLocation.longitude == eventList[num].location.longitude) {
-//                disNum = num
-//
-//                self.showArriveView(sender: self)
-//                break
-//            }
-//            num += 1
-//        }
-//    }
-    /* ADD THIS FUNCTION CALL??
-     discussionReached()*/
-//    func discussionReached() {
-//        //show alert when within range of location
-//        let location = exLocation
-//
-//        var num = 0
-//
-//        while (num < 5) {
-//            if (eventList[num].location.latitude == location.latitude && eventList[num].location.longitude == location.longitude) {
-//                let ac = UIAlertController(title: "You have arrived!", message: "Ready to discuss?", preferredStyle: .alert)
-//                ac.addAction(UIAlertAction(title: "Discuss", style: .default, handler: {(action) in ac.dismiss(animated: true, completion: nil)
-//                    //do something here
-//                }))
-//                ac.addAction(UIAlertAction(title: "Cancel", style: .default, handler: {(action) in ac.dismiss(animated: true, completion: nil)
-//                    //do something here
-//                }))
-//                disNum = num
-//                break
-//            }
-//            num += 1
-//        }
-//    }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
         let identifier = "MapAnnotations"
@@ -747,18 +948,8 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         }
     }
     
-    //MODIFY TO BE CORRECT PAGE
     @IBAction func showReviewPage(_ sender: Any) {
-        let popUpVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "endDiscussion") as! DiscussionEndPopUpController
-        self.addChildViewController(popUpVC)
-        
-        popUpVC.view.frame = self.view.frame
-        self.view.addSubview(popUpVC.view)
-        popUpVC.didMove(toParentViewController: self)
-    }
-    
-    @IBAction func showQuestionPage(_ sender: Any) {
-        let popUpVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "endDiscussion") as! DiscussionEndPopUpController
+        let popUpVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewController(withIdentifier: "hostReviewBoard") as! ReviewViewController
         self.addChildViewController(popUpVC)
         
         popUpVC.view.frame = self.view.frame
@@ -934,3 +1125,42 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 //        annotation.coordinate = location
 //
 //        Map.addAnnotation(annotation)
+
+
+//OLD DISCUSSION REACHED ATTEMPTS
+//    func discussionReached() {
+//        var num = 0
+//
+//        while (num < eventList.count) {
+//            if (exLocation.latitude == eventList[num].location.latitude && exLocation.longitude == eventList[num].location.longitude) {
+//                disNum = num
+//
+//                self.showArriveView(sender: self)
+//                break
+//            }
+//            num += 1
+//        }
+//    }
+/* ADD THIS FUNCTION CALL??
+ discussionReached()*/
+//    func discussionReached() {
+//        //show alert when within range of location
+//        let location = exLocation
+//
+//        var num = 0
+//
+//        while (num < 5) {
+//            if (eventList[num].location.latitude == location.latitude && eventList[num].location.longitude == location.longitude) {
+//                let ac = UIAlertController(title: "You have arrived!", message: "Ready to discuss?", preferredStyle: .alert)
+//                ac.addAction(UIAlertAction(title: "Discuss", style: .default, handler: {(action) in ac.dismiss(animated: true, completion: nil)
+//                    //do something here
+//                }))
+//                ac.addAction(UIAlertAction(title: "Cancel", style: .default, handler: {(action) in ac.dismiss(animated: true, completion: nil)
+//                    //do something here
+//                }))
+//                disNum = num
+//                break
+//            }
+//            num += 1
+//        }
+//    }
