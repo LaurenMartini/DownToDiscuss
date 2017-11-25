@@ -23,6 +23,8 @@ class LocationSearchTable: UITableViewController {
     //create an instance of search controller
     var sController:UISearchController? = nil
     
+    var handleMapSearchDelegate:HandleMapSearch? = nil
+    
     //search queries rly on map region to prioritize local results
     var mapView:MKMapView? = nil
 
@@ -66,6 +68,7 @@ class LocationSearchTable: UITableViewController {
         if isFiltering() {
             event = matchingItems[indexPath.row]
         } else {
+            ref?.child("status").setValue("resetPins")
             event = allItems[indexPath.row]
         }
         cell.textLabel!.text = event.discussionTitle
@@ -154,6 +157,14 @@ class LocationSearchTable: UITableViewController {
 //    }
 //}
 //
+extension LocationSearchTable {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedItem = matchingItems[indexPath.row]
+        handleMapSearchDelegate?.dropPinZoomIn(event: selectedItem)
+        dismiss(animated: true, completion: nil)
+    }
+}
+
 extension LocationSearchTable: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)

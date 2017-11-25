@@ -12,6 +12,10 @@ import CoreLocation
 import Firebase
 import FirebaseDatabase
 
+protocol HandleMapSearch {
+    func dropPinZoomIn(event: Events)
+}
+
 //global variables originally in Home
 
 var curLat = 0.0
@@ -35,6 +39,9 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     //create property for the UISearchController
     var resultSearchController:UISearchController? = nil
+    
+    //for protocal for map search
+    var selectedPin:MKPlacemark? = nil
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
        // let location = locations[0]
@@ -91,6 +98,9 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         //pass controller to locationSearchTable
         locationSearchTable.getControllerCreatedInHome(sController: resultSearchController!)
         
+        //handleMapDelegate
+        locationSearchTable.handleMapSearchDelegate = self
+        
         //fix to add user's created event to the map
         if (eventCreated == 1) {
             addNewDiscussionMarker()
@@ -125,6 +135,9 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
                 if (currHost == 0) {
                     self.showReviewPage(sender: self)
                 }
+                break
+            case "resetPins":
+                self.addOtherDiscussions()
                 break
             case "userInform":
                 //if user is host get notified that a guest is on their way
@@ -993,6 +1006,24 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         popUpVC.didMove(toParentViewController: self)
     }
  }
+
+extension Home: HandleMapSearch {
+    func dropPinZoomIn(event: Events) {
+        //clear existing pins
+        Map.removeAnnotations(Map.annotations)
+        let pin = MapAnnotations(coordinate: event.location, title: event.discussionTitle, subtitle: "Fun Topic: " + event.funTopic + "\n Intense Topic: " + event.intenseTopic)
+        Map.addAnnotation(pin)
+        //changes annotation and zoom to search result which isn't what is desired right now
+//        let annotation = MKPointAnnotation()
+//        annotation.coordinate = event.location
+//        annotation.title = event.discussionTitle
+//        annotation.subtitle = "Fun Topic: " + event.funTopic + ", Intense Topic: " + event.intenseTopic
+//        Map.addAnnotation(annotation)
+//        let span = MKCoordinateSpanMake(0.008, 0.008)
+//        let region = MKCoordinateRegionMake(event.location, span)
+//        Map.setRegion(region, animated: false)
+    }
+}
 
 /* CODE DUMP - OLD PARTS AND PIECES */
 
