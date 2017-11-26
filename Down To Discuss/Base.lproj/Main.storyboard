@@ -31,11 +31,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="do2-1O-pxg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="final_findDiscussions.png" translatesAutoresizingMaskIntoConstraints="NO" id="do2-1O-pxg">
+                                <rect key="frame" x="0.0" y="20" width="375" height="627"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="N3x-gB-cjI"/>
-                                    <constraint firstAttribute="height" constant="667" id="wmL-UD-bAu"/>
+                                    <constraint firstAttribute="height" constant="627" id="wmL-UD-bAu"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3wx-YQ-CwP">
@@ -78,10 +78,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="hVt-iy-vUP">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="final_2_searchDiscussions.png" translatesAutoresizingMaskIntoConstraints="NO" id="hVt-iy-vUP">
+                                <rect key="frame" x="0.0" y="20" width="375" height="627"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="667" id="IXp-XW-35H"/>
+                                    <constraint firstAttribute="height" constant="627" id="IXp-XW-35H"/>
                                     <constraint firstAttribute="width" constant="375" id="zyT-V9-TGf"/>
                                 </constraints>
                             </imageView>
@@ -109,11 +109,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="AXC-mE-wof">
-                                <rect key="frame" x="0.0" y="4" width="375" height="659"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="final_goToDiscussion.png" translatesAutoresizingMaskIntoConstraints="NO" id="AXC-mE-wof">
+                                <rect key="frame" x="0.0" y="20" width="375" height="627"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="JdM-eU-kUs"/>
-                                    <constraint firstAttribute="height" constant="659" id="wbs-hf-1Qh"/>
+                                    <constraint firstAttribute="height" constant="627" id="wbs-hf-1Qh"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -140,10 +140,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="9D4-ma-qsT">
-                                <rect key="frame" x="0.0" y="4" width="375" height="659"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="final_checkInForPoints.png" translatesAutoresizingMaskIntoConstraints="NO" id="9D4-ma-qsT">
+                                <rect key="frame" x="0.0" y="20" width="375" height="627"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="659" id="DuE-42-3Z3"/>
+                                    <constraint firstAttribute="height" constant="627" id="DuE-42-3Z3"/>
                                     <constraint firstAttribute="width" constant="375" id="IdY-ZL-tZA"/>
                                 </constraints>
                             </imageView>
@@ -171,10 +171,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="REP-aO-oVz">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="final_getPoints.png" translatesAutoresizingMaskIntoConstraints="NO" id="REP-aO-oVz">
+                                <rect key="frame" x="0.0" y="20" width="375" height="627"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="667" id="JE9-0A-z8t"/>
+                                    <constraint firstAttribute="height" constant="627" id="JE9-0A-z8t"/>
                                     <constraint firstAttribute="width" constant="375" id="uhi-Lj-Bmu"/>
                                 </constraints>
                             </imageView>
@@ -2068,9 +2068,6 @@
     <resources>
         <image name=" Back Arrow.png" width="24" height="24"/>
         <image name="1.jpg" width="440" height="485"/>
-        <image name="2.jpg" width="700" height="505"/>
-        <image name="3.jpg" width="750" height="417"/>
-        <image name="4.jpg" width="510" height="410"/>
         <image name="6.jpg" width="1280" height="957"/>
         <image name="Rectangle.png" width="320" height="54"/>
         <image name="addMeetup" width="30" height="30"/>
@@ -2078,6 +2075,11 @@
         <image name="cancelButton.png" width="140" height="63"/>
         <image name="create.png" width="140" height="63"/>
         <image name="emptyStar.png" width="200" height="200"/>
+        <image name="final_2_searchDiscussions.png" width="747" height="1285"/>
+        <image name="final_checkInForPoints.png" width="750" height="1334"/>
+        <image name="final_findDiscussions.png" width="748" height="1286"/>
+        <image name="final_getPoints.png" width="750" height="1334"/>
+        <image name="final_goToDiscussion.png" width="750" height="1334"/>
         <image name="homeIcon" width="30" height="30"/>
         <image name="leadBoard2" width="30" height="30"/>
         <image name="profile" width="30" height="30"/>
