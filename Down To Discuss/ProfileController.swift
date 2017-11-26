@@ -16,15 +16,26 @@ class ProfileController: UIViewController {
     
     @IBOutlet var ratingPic: UIImageView!
     
+    @IBOutlet var userPoints: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if (currHost == 1) {
-            currUserLabel.text = eventList[2].user.name
-            profilePic.image = eventList[2].user.userPic
-            ratingPic.image = eventList[2].user.userRating
+            if (currentDis > -1) {
+                currUserLabel.text = eventList[currentDis].user.name
+                profilePic.image = eventList[currentDis].user.userPic
+                ratingPic.image = eventList[currentDis].user.userRating
+                userPoints.text = "Total Points: " + (String)(eventList[currentDis].user.totalPoints)
+            } else {
+                currUserLabel.text = eventList[2].user.name
+                profilePic.image = eventList[2].user.userPic
+                ratingPic.image = eventList[2].user.userRating
+                userPoints.text = "Total Points: " + (String)(eventList[2].user.totalPoints)
+            }
         } else {
             currUserLabel.text = currUser
+            userPoints.text = "Total Points: " + (String)(currentUser.totalPoints)
         }
         // Do any additional setup after loading the view.
     }

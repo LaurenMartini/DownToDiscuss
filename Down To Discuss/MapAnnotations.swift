@@ -10,28 +10,31 @@ import UIKit
 import MapKit
 
 //add image info here
-//enum MapMarkerType: Int {
-//    case onePt = 0
-//    case fivePt
-//    
-//    func image() -> UIImage {
-//        switch self {
-//        case .onePt:
-//            return #imageLiteral(resourceName: "waypoint")
-//        case .fivePt:
-//            return #imageLiteral(resourceName: "waypoint")
-//        }
-//    }
-//}
+enum MapMarkerType: Int {
+    case onePt = 1
+    case fivePt = 5
+    
+    func image() -> UIImage {
+        switch self {
+        case .onePt:
+            return #imageLiteral(resourceName: "waypoint")
+        case .fivePt:
+            return #imageLiteral(resourceName: "waypoint")
+        }
+    }
+}
 
 class MapAnnotations: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
     var title: String?
     var subtitle: String?
+    //var color: MKPinAnnotationColor
+    var type: MapMarkerType
     
-    init(coordinate: CLLocationCoordinate2D, title: String, subtitle: String) {
+    init(coordinate: CLLocationCoordinate2D, title: String, subtitle: String, type: MapMarkerType) {
         self.coordinate = coordinate
         self.title = title
         self.subtitle = subtitle
+        self.type = type
     }
 }

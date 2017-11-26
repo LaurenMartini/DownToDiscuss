@@ -103,7 +103,7 @@ class DiscussionEndPopUpController: UIViewController, UITextFieldDelegate{
         self.commentSection.delegate = self
         // Do any additional setup after loading the view.
         pointAmt.text = (String)(eventList[currentDis].points) + " pts"
-        currentUser.totalPoints += eventList[currentDis].points
+        //currentUser.totalPoints += eventList[currentDis].points
     }
 
     override func didReceiveMemoryWarning() {

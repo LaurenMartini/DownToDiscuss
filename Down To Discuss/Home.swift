@@ -74,6 +74,9 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         let region: MKCoordinateRegion = MKCoordinateRegionMake(exLocation, span)
         
         Map.setRegion(region, animated: false)
+//        if #available(iOS 11.0, *) {
+//            Map.register(MapAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+//        }
         addOtherDiscussions()
         
 //        //set up search results table
@@ -123,8 +126,14 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
                 //guest gets to view host profile
                 if (currHost == 0) {
                     //self.showHostProfile(sender: self)
+                    self.navigationController?.setNavigationBarHidden(true, animated: true)
+                    self.navigationItem.titleView = nil
                     self.showHostInfo(sender: self)
                 }
+                break
+            case "lookAtInfo":
+                self.navigationController?.setNavigationBarHidden(true, animated: true)
+                self.navigationItem.titleView = nil
                 break
             case "returnToInfo":
                 if (currHost == 0) {
@@ -137,6 +146,8 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
                 }
                 break
             case "resetPins":
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                self.navigationItem.titleView = self.resultSearchController?.searchBar
                 self.addOtherDiscussions()
                 break
             case "userInform":
@@ -180,10 +191,14 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
                 if (currHost == 1) {
                     self.showOwnerPoints(sender: self)
                 } else {
+                    currentUser.totalPoints += eventList[currentDis].points
+                    print("currentDis: " + (String)(currentDis))
                     self.showDisEnd(sender: self)
                 }
                 break
             case "":
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                self.navigationItem.titleView = self.resultSearchController?.searchBar
                 break
             default:
                 print("no valid status!")
@@ -208,7 +223,7 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
             //location
             let disLocation = eventList[y].location
             //pin
-            let pin = MapAnnotations(coordinate: disLocation, title: eventList[y].discussionTitle, subtitle: "Fun Topic: " + eventList[y].funTopic + "\n Intense Topic: " + eventList[y].intenseTopic)
+            let pin = MapAnnotations(coordinate: disLocation, title: eventList[y].discussionTitle, subtitle: "Fun Topic: " + eventList[y].funTopic + "\n Intense Topic: " + eventList[y].intenseTopic, type: MapMarkerType(rawValue: eventList[y].points)!)
             
             //store 2nd event as a temp for first prototype iteration
             if (y == 2) {
@@ -226,7 +241,7 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         
         let newEvent = Events(user: currentUser, discussionTitle: eventName, location:  CLLocationCoordinate2DMake(location.latitude, location.longitude), funTopic: "", intenseTopic: "", description: "", points: 0, usersInterested: 0, usersThere: 0)
         
-        let annotation = MapAnnotations(coordinate: location, title: eventName, subtitle: "")
+        let annotation = MapAnnotations(coordinate: location, title: eventName, subtitle: "", type: MapMarkerType(rawValue: 1)!)
         Map.addAnnotation(annotation)
         
         eventList.append(newEvent)
@@ -848,6 +863,7 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         let identifier = "MapAnnotations"
         
         if annotation is MapAnnotations {
+            var view: MKAnnotationView? = nil
             var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
             if annotationView == nil {
                 annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
@@ -855,11 +871,13 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
                 
                 let btn = UIButton(type: .detailDisclosure)
                 annotationView!.rightCalloutAccessoryView = btn
+                view = annotationView
             } else {
                 annotationView!.annotation = annotation
+                view = annotationView
             }
             
-            return annotationView
+            return view
         }
         
         return nil
@@ -881,6 +899,7 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
                 }
                 num += 1
             }
+            ref?.child("status").setValue("lookAtInfo")
             showPopup(sender:self)
         }
     }
@@ -1007,11 +1026,20 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     }
  }
 
+extension MKPinAnnotationView {
+    class func greyPinColor(num: Int) -> UIColor {
+        if (num == 5) {
+            return UIColor.green
+        }
+        return UIColor.gray
+    }
+}
+
 extension Home: HandleMapSearch {
     func dropPinZoomIn(event: Events) {
         //clear existing pins
         Map.removeAnnotations(Map.annotations)
-        let pin = MapAnnotations(coordinate: event.location, title: event.discussionTitle, subtitle: "Fun Topic: " + event.funTopic + "\n Intense Topic: " + event.intenseTopic)
+        let pin = MapAnnotations(coordinate: event.location, title: event.discussionTitle, subtitle: "Fun Topic: " + event.funTopic + "\n Intense Topic: " + event.intenseTopic, type: MapMarkerType(rawValue: event.points)!)
         Map.addAnnotation(pin)
         //changes annotation and zoom to search result which isn't what is desired right now
 //        let annotation = MKPointAnnotation()
