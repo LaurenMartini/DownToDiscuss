@@ -29,70 +29,70 @@ class DiscussionEndPopUpController: UIViewController, UITextFieldDelegate{
     
     @IBAction func starOne(_ sender: Any) {
         if (ratingChosen == 0) {
-            (sender as AnyObject).setImage(UIImage(named: "star-128.png"), for: UIControlState.normal)
+            (sender as AnyObject).setImage(UIImage(named: "starFill_button.png"), for: UIControlState.normal)
             ratingChosen = 1
         } else {
-            (sender as AnyObject).setImage(UIImage(named: "emptyStar.png"), for: UIControlState.normal)
+            (sender as AnyObject).setImage(UIImage(named: "starEmpty.png"), for: UIControlState.normal)
             ratingChosen = 0
         }
     }
     
     @IBAction func starTwo(_ sender: Any) {
         if (ratingChosen == 0) {
-            (sender as AnyObject).setImage(UIImage(named: "star-128.png"), for: UIControlState.normal)
-            firstStar.setImage(UIImage(named: "star-128.png"), for: UIControlState.normal)
+            (sender as AnyObject).setImage(UIImage(named: "starFill_button.png"), for: UIControlState.normal)
+            firstStar.setImage(UIImage(named: "starFill_button.png"), for: UIControlState.normal)
             ratingChosen = 1
         } else {
-            (sender as AnyObject).setImage(UIImage(named: "emptyStar.png"), for: UIControlState.normal)
-            firstStar.setImage(UIImage(named: "emptyStar.png"), for: UIControlState.normal)
+            (sender as AnyObject).setImage(UIImage(named: "starEmpty.png"), for: UIControlState.normal)
+            firstStar.setImage(UIImage(named: "starEmpty.png"), for: UIControlState.normal)
             ratingChosen = 0
         }
     }
     
     @IBAction func starThree(_ sender: Any) {
         if (ratingChosen == 0) {
-            (sender as AnyObject).setImage(UIImage(named: "star-128.png"), for: UIControlState.normal)
-            firstStar.setImage(UIImage(named: "star-128.png"), for: UIControlState.normal)
-            secondStar.setImage(UIImage(named: "star-128.png"), for: UIControlState.normal)
+            (sender as AnyObject).setImage(UIImage(named: "starFill_button.png"), for: UIControlState.normal)
+            firstStar.setImage(UIImage(named: "starFill_button.png"), for: UIControlState.normal)
+            secondStar.setImage(UIImage(named: "starFill_button.png"), for: UIControlState.normal)
             ratingChosen = 1
         } else {
-            (sender as AnyObject).setImage(UIImage(named: "emptyStar.png"), for: UIControlState.normal)
-            firstStar.setImage(UIImage(named: "emptyStar.png"), for: UIControlState.normal)
-            secondStar.setImage(UIImage(named: "emptyStar.png"), for: UIControlState.normal)
+            (sender as AnyObject).setImage(UIImage(named: "starEmpty.png"), for: UIControlState.normal)
+            firstStar.setImage(UIImage(named: "starEmpty.png"), for: UIControlState.normal)
+            secondStar.setImage(UIImage(named: "starEmpty.png"), for: UIControlState.normal)
             ratingChosen = 0
         }
     }
     
     @IBAction func starFour(_ sender: Any) {
         if (ratingChosen == 0) {
-            (sender as AnyObject).setImage(UIImage(named: "star-128.png"), for: UIControlState.normal)
-            firstStar.setImage(UIImage(named: "star-128.png"), for: UIControlState.normal)
-            secondStar.setImage(UIImage(named: "star-128.png"), for: UIControlState.normal)
-            thirdStar.setImage(UIImage(named: "star-128.png"), for: UIControlState.normal)
+            (sender as AnyObject).setImage(UIImage(named: "starFill_button.png"), for: UIControlState.normal)
+            firstStar.setImage(UIImage(named: "starFill_button.png"), for: UIControlState.normal)
+            secondStar.setImage(UIImage(named: "starFill_button.png"), for: UIControlState.normal)
+            thirdStar.setImage(UIImage(named: "starFill_button.png"), for: UIControlState.normal)
             ratingChosen = 1
         } else {
-            (sender as AnyObject).setImage(UIImage(named: "emptyStar.png"), for: UIControlState.normal)
-            firstStar.setImage(UIImage(named: "emptyStar.png"), for: UIControlState.normal)
-            secondStar.setImage(UIImage(named: "emptyStar.png"), for: UIControlState.normal)
-            thirdStar.setImage(UIImage(named: "emptyStar.png"), for: UIControlState.normal)
+            (sender as AnyObject).setImage(UIImage(named: "starEmpty.png"), for: UIControlState.normal)
+            firstStar.setImage(UIImage(named: "starEmpty.png"), for: UIControlState.normal)
+            secondStar.setImage(UIImage(named: "starEmpty.png"), for: UIControlState.normal)
+            thirdStar.setImage(UIImage(named: "starEmpty.png"), for: UIControlState.normal)
             ratingChosen = 0
         }
     }
     
     @IBAction func starFive(_ sender: Any) {
         if (ratingChosen == 0) {
-            (sender as AnyObject).setImage(UIImage(named: "star-128.png"), for: UIControlState.normal)
-            firstStar.setImage(UIImage(named: "star-128.png"), for: UIControlState.normal)
-            secondStar.setImage(UIImage(named: "star-128.png"), for: UIControlState.normal)
-            thirdStar.setImage(UIImage(named: "star-128.png"), for: UIControlState.normal)
-            fourthStar.setImage(UIImage(named: "star-128.png"), for: UIControlState.normal)
+            (sender as AnyObject).setImage(UIImage(named: "starFill_button.png"), for: UIControlState.normal)
+            firstStar.setImage(UIImage(named: "starFill_button.png"), for: UIControlState.normal)
+            secondStar.setImage(UIImage(named: "starFill_button.png"), for: UIControlState.normal)
+            thirdStar.setImage(UIImage(named: "starFill_button.png"), for: UIControlState.normal)
+            fourthStar.setImage(UIImage(named: "starFill_button.png"), for: UIControlState.normal)
             ratingChosen = 1
         } else {
-            (sender as AnyObject).setImage(UIImage(named: "emptyStar.png"), for: UIControlState.normal)
-            firstStar.setImage(UIImage(named: "emptyStar.png"), for: UIControlState.normal)
-            secondStar.setImage(UIImage(named: "emptyStar.png"), for: UIControlState.normal)
-            thirdStar.setImage(UIImage(named: "emptyStar.png"), for: UIControlState.normal)
-            fourthStar.setImage(UIImage(named: "emptyStar.png"), for: UIControlState.normal)
+            (sender as AnyObject).setImage(UIImage(named: "starEmpty.png"), for: UIControlState.normal)
+            firstStar.setImage(UIImage(named: "starEmpty.png"), for: UIControlState.normal)
+            secondStar.setImage(UIImage(named: "starEmpty.png"), for: UIControlState.normal)
+            thirdStar.setImage(UIImage(named: "starEmpty.png"), for: UIControlState.normal)
+            fourthStar.setImage(UIImage(named: "starEmpty.png"), for: UIControlState.normal)
             ratingChosen = 0
         }
     }

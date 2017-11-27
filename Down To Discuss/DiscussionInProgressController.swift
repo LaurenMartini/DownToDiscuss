@@ -22,7 +22,7 @@ class DiscussionInProgressController: UIViewController {
         
         // Do any additional setup after loading the view.
         if (currHost == 1) {
-            leaveEndButton.setTitle("END", for: UIControlState.normal)
+            leaveEndButton.setImage(UIImage(named: "end.png"), for: UIControlState.normal)
         }
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(DiscussionInProgressController.action), userInfo: nil, repeats: true)
     }

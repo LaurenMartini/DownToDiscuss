@@ -15,6 +15,29 @@
 		DF1169871FC95EED00C4554C /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1169861FC95EEC00C4554C /* Review.swift */; };
 		DF116C911FBC24AD00C3C740 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF116C901FBC24AD00C3C740 /* LoginController.swift */; };
 		DF116C931FBC2EC700C3C740 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF116C921FBC2EC700C3C740 /* ProfileController.swift */; };
+		DF1B52041FCBE13A003924B0 /* waypoint.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1B52031FCBE13A003924B0 /* waypoint.png */; };
+		DF1B52061FCBE24A003924B0 /* LoginButton.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1B52051FCBE24A003924B0 /* LoginButton.png */; };
+		DF1B52081FCBE399003924B0 /* LogoMain.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1B52071FCBE399003924B0 /* LogoMain.png */; };
+		DF1B52141FCBE861003924B0 /* go_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1B52091FCBE857003924B0 /* go_button.png */; };
+		DF1B52151FCBE861003924B0 /* message_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1B520A1FCBE858003924B0 /* message_button.png */; };
+		DF1B52161FCBE861003924B0 /* cm_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1B520B1FCBE859003924B0 /* cm_button.png */; };
+		DF1B52171FCBE861003924B0 /* starEmpty.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1B520C1FCBE85A003924B0 /* starEmpty.png */; };
+		DF1B52181FCBE861003924B0 /* gc_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1B520D1FCBE85B003924B0 /* gc_button.png */; };
+		DF1B52191FCBE861003924B0 /* ExitButton.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1B520E1FCBE85C003924B0 /* ExitButton.png */; };
+		DF1B521A1FCBE861003924B0 /* checkIn_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1B520F1FCBE85D003924B0 /* checkIn_button.png */; };
+		DF1B521B1FCBE861003924B0 /* ok_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1B52101FCBE85E003924B0 /* ok_button.png */; };
+		DF1B521C1FCBE861003924B0 /* om_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1B52111FCBE85F003924B0 /* om_button.png */; };
+		DF1B521D1FCBE861003924B0 /* dc_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1B52121FCBE85F003924B0 /* dc_button.png */; };
+		DF1B521E1FCBE861003924B0 /* starFill_button.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1B52131FCBE860003924B0 /* starFill_button.png */; };
+		DF1B52251FCBEC7E003924B0 /* accept.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1B521F1FCBEC62003924B0 /* accept.png */; };
+		DF1B52261FCBEC7E003924B0 /* end.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1B52201FCBEC65003924B0 /* end.png */; };
+		DF1B52271FCBEC7E003924B0 /* leave.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1B52211FCBEC6B003924B0 /* leave.png */; };
+		DF1B52281FCBEC7E003924B0 /* create.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1B52221FCBEC6F003924B0 /* create.png */; };
+		DF1B52291FCBEC7E003924B0 /* reject.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1B52231FCBEC74003924B0 /* reject.png */; };
+		DF1B522A1FCBEC7E003924B0 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1B52241FCBEC79003924B0 /* cancel.png */; };
+		DF1B522E1FCBEC99003924B0 /* achievements.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1B522B1FCBEC8A003924B0 /* achievements.png */; };
+		DF1B522F1FCBEC99003924B0 /* questions.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1B522C1FCBEC8F003924B0 /* questions.png */; };
+		DF1B52301FCBEC99003924B0 /* reviews.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1B522D1FCBEC94003924B0 /* reviews.png */; };
 		DF62D4921FC9FF3900E4F8F3 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62D4911FC9FF3900E4F8F3 /* LocationSearchTable.swift */; };
 		DF62D4941FCA370900E4F8F3 /* MapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62D4931FCA370900E4F8F3 /* MapAnnotationView.swift */; };
 		DF62D4961FCA480E00E4F8F3 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF62D4951FCA480E00E4F8F3 /* TutorialPageViewController.swift */; };
@@ -97,6 +120,29 @@
 		DF1169861FC95EEC00C4554C /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		DF116C901FBC24AD00C3C740 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		DF116C921FBC2EC700C3C740 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		DF1B52031FCBE13A003924B0 /* waypoint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = waypoint.png; path = ../../../p3/waypoint.png; sourceTree = "<group>"; };
+		DF1B52051FCBE24A003924B0 /* LoginButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LoginButton.png; path = ../../../finalDesignPieces/LoginButton.png; sourceTree = "<group>"; };
+		DF1B52071FCBE399003924B0 /* LogoMain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LogoMain.png; path = ../../../finalDesignPieces/LogoMain.png; sourceTree = "<group>"; };
+		DF1B52091FCBE857003924B0 /* go_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = go_button.png; path = ../../../finalDesignPieces/go_button.png; sourceTree = "<group>"; };
+		DF1B520A1FCBE858003924B0 /* message_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = message_button.png; path = ../../../finalDesignPieces/message_button.png; sourceTree = "<group>"; };
+		DF1B520B1FCBE859003924B0 /* cm_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cm_button.png; path = ../../../finalDesignPieces/cm_button.png; sourceTree = "<group>"; };
+		DF1B520C1FCBE85A003924B0 /* starEmpty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = starEmpty.png; path = ../../../finalDesignPieces/starEmpty.png; sourceTree = "<group>"; };
+		DF1B520D1FCBE85B003924B0 /* gc_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gc_button.png; path = ../../../finalDesignPieces/gc_button.png; sourceTree = "<group>"; };
+		DF1B520E1FCBE85C003924B0 /* ExitButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ExitButton.png; path = ../../../finalDesignPieces/ExitButton.png; sourceTree = "<group>"; };
+		DF1B520F1FCBE85D003924B0 /* checkIn_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkIn_button.png; path = ../../../finalDesignPieces/checkIn_button.png; sourceTree = "<group>"; };
+		DF1B52101FCBE85E003924B0 /* ok_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ok_button.png; path = ../../../finalDesignPieces/ok_button.png; sourceTree = "<group>"; };
+		DF1B52111FCBE85F003924B0 /* om_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = om_button.png; path = ../../../finalDesignPieces/om_button.png; sourceTree = "<group>"; };
+		DF1B52121FCBE85F003924B0 /* dc_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dc_button.png; path = ../../../finalDesignPieces/dc_button.png; sourceTree = "<group>"; };
+		DF1B52131FCBE860003924B0 /* starFill_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = starFill_button.png; path = ../../../finalDesignPieces/starFill_button.png; sourceTree = "<group>"; };
+		DF1B521F1FCBEC62003924B0 /* accept.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = accept.png; path = ../../../finalDesignPieces/Untitled/accept.png; sourceTree = "<group>"; };
+		DF1B52201FCBEC65003924B0 /* end.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = end.png; path = ../../../finalDesignPieces/Untitled/end.png; sourceTree = "<group>"; };
+		DF1B52211FCBEC6B003924B0 /* leave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = leave.png; path = ../../../finalDesignPieces/Untitled/leave.png; sourceTree = "<group>"; };
+		DF1B52221FCBEC6F003924B0 /* create.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = create.png; path = ../../../finalDesignPieces/Untitled/create.png; sourceTree = "<group>"; };
+		DF1B52231FCBEC74003924B0 /* reject.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reject.png; path = ../../../finalDesignPieces/Untitled/reject.png; sourceTree = "<group>"; };
+		DF1B52241FCBEC79003924B0 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cancel.png; path = ../../../finalDesignPieces/Untitled/cancel.png; sourceTree = "<group>"; };
+		DF1B522B1FCBEC8A003924B0 /* achievements.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = achievements.png; path = "../../../finalDesignPieces/Untitled-2/achievements.png"; sourceTree = "<group>"; };
+		DF1B522C1FCBEC8F003924B0 /* questions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = questions.png; path = "../../../finalDesignPieces/Untitled-2/questions.png"; sourceTree = "<group>"; };
+		DF1B522D1FCBEC94003924B0 /* reviews.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reviews.png; path = "../../../finalDesignPieces/Untitled-2/reviews.png"; sourceTree = "<group>"; };
 		DF62D4911FC9FF3900E4F8F3 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		DF62D4931FCA370900E4F8F3 /* MapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationView.swift; sourceTree = "<group>"; };
 		DF62D4951FCA480E00E4F8F3 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +276,26 @@
 				DFE52D061FB009E700AFD3B8 /* IntenseTopics.swift */,
 				DFE52D081FB0260700AFD3B8 /* CreateDiscussion.swift */,
 				DF6C4FB01FAC1A0E003CBE57 /* Main.storyboard */,
+				DF1B522B1FCBEC8A003924B0 /* achievements.png */,
+				DF1B522C1FCBEC8F003924B0 /* questions.png */,
+				DF1B522D1FCBEC94003924B0 /* reviews.png */,
+				DF1B521F1FCBEC62003924B0 /* accept.png */,
+				DF1B52241FCBEC79003924B0 /* cancel.png */,
+				DF1B52221FCBEC6F003924B0 /* create.png */,
+				DF1B52201FCBEC65003924B0 /* end.png */,
+				DF1B52211FCBEC6B003924B0 /* leave.png */,
+				DF1B52231FCBEC74003924B0 /* reject.png */,
+				DF1B520F1FCBE85D003924B0 /* checkIn_button.png */,
+				DF1B520B1FCBE859003924B0 /* cm_button.png */,
+				DF1B52121FCBE85F003924B0 /* dc_button.png */,
+				DF1B520E1FCBE85C003924B0 /* ExitButton.png */,
+				DF1B520D1FCBE85B003924B0 /* gc_button.png */,
+				DF1B52091FCBE857003924B0 /* go_button.png */,
+				DF1B520A1FCBE858003924B0 /* message_button.png */,
+				DF1B52101FCBE85E003924B0 /* ok_button.png */,
+				DF1B52111FCBE85F003924B0 /* om_button.png */,
+				DF1B520C1FCBE85A003924B0 /* starEmpty.png */,
+				DF1B52131FCBE860003924B0 /* starFill_button.png */,
 				DF62D4951FCA480E00E4F8F3 /* TutorialPageViewController.swift */,
 				DF62D4911FC9FF3900E4F8F3 /* LocationSearchTable.swift */,
 				DF1169821FC8E52900C4554C /* HostInfoController.swift */,
@@ -274,6 +340,9 @@
 				DFE52CFC1FAE830A00AFD3B8 /* cancelButton.png */,
 				DFE52CFD1FAE830A00AFD3B8 /* create.png */,
 				DFE52CFA1FAE817F00AFD3B8 /* Rectangle.png */,
+				DF1B52051FCBE24A003924B0 /* LoginButton.png */,
+				DF1B52071FCBE399003924B0 /* LogoMain.png */,
+				DF1B52031FCBE13A003924B0 /* waypoint.png */,
 				DF6C4FB31FAC1A0E003CBE57 /* Assets.xcassets */,
 				DF6C4FB51FAC1A0E003CBE57 /* LaunchScreen.storyboard */,
 				DF6C4FB81FAC1A0E003CBE57 /* Info.plist */,
@@ -400,33 +469,56 @@
 				DF62D4A21FCB56FF00E4F8F3 /* final_getPoints.png in Resources */,
 				DFE168BD1FB1D4C200D580B5 /* fiveStars.png in Resources */,
 				DF696C311FB99AF0006A3DAA /* 1.jpg in Resources */,
+				DF1B52041FCBE13A003924B0 /* waypoint.png in Resources */,
 				DF62D4A11FCB56FF00E4F8F3 /* final_searchDiscussions.png in Resources */,
 				DF62D49F1FCB56FF00E4F8F3 /* final_2_searchDiscussions.png in Resources */,
+				DF1B52081FCBE399003924B0 /* LogoMain.png in Resources */,
 				DFE168BE1FB1D4C200D580B5 /* fourStars.png in Resources */,
 				DF62D49D1FCB56FF00E4F8F3 /* final_goToDiscussion.png in Resources */,
 				DFE52CFB1FAE817F00AFD3B8 /* Rectangle.png in Resources */,
+				DF1B52151FCBE861003924B0 /* message_button.png in Resources */,
 				DFE168B71FB1D34C00D580B5 /* star-128.png in Resources */,
+				DF1B52291FCBEC7E003924B0 /* reject.png in Resources */,
 				DFE168C01FB1D4C200D580B5 /* threeStars.png in Resources */,
 				DFE168B51FB1D32F00D580B5 /* emptyStar.png in Resources */,
+				DF1B521E1FCBE861003924B0 /* starFill_button.png in Resources */,
 				DF696C301FB99AF0006A3DAA /* 4.jpg in Resources */,
 				DF6C4FB71FAC1A0E003CBE57 /* LaunchScreen.storyboard in Resources */,
 				DF696C331FB99AF0006A3DAA /* 2.jpg in Resources */,
 				DF6C4FB41FAC1A0E003CBE57 /* Assets.xcassets in Resources */,
 				DF696C341FB99AF0006A3DAA /* 3.jpg in Resources */,
+				DF1B52191FCBE861003924B0 /* ExitButton.png in Resources */,
 				DFE52CFF1FAE830A00AFD3B8 /* create.png in Resources */,
+				DF1B52301FCBEC99003924B0 /* reviews.png in Resources */,
+				DF1B522A1FCBEC7E003924B0 /* cancel.png in Resources */,
+				DF1B522E1FCBEC99003924B0 /* achievements.png in Resources */,
+				DF1B521A1FCBE861003924B0 /* checkIn_button.png in Resources */,
 				DF6C4FB21FAC1A0E003CBE57 /* Main.storyboard in Resources */,
 				DFE168C11FB1D4C200D580B5 /* twoStars.png in Resources */,
+				DF1B52261FCBEC7E003924B0 /* end.png in Resources */,
+				DF1B521D1FCBE861003924B0 /* dc_button.png in Resources */,
 				DFE168C31FB1D78900D580B5 /* defaultProfile.png in Resources */,
 				DF62D49E1FCB56FF00E4F8F3 /* final_checkInForPoints.png in Resources */,
+				DF1B52141FCBE861003924B0 /* go_button.png in Resources */,
 				DF696C321FB99AF0006A3DAA /* 6.jpg in Resources */,
+				DF1B52061FCBE24A003924B0 /* LoginButton.png in Resources */,
 				DFE54C901FBA35F0005B0184 /* GoogleService-Info.plist in Resources */,
+				DF1B52281FCBEC7E003924B0 /* create.png in Resources */,
 				DFE52CF01FAC30E600AFD3B8 /* closeUpMap.tiff in Resources */,
 				DFE52D011FAE88ED00AFD3B8 /*  Back Arrow.png in Resources */,
 				DF696C351FB99AF0006A3DAA /* 5.jpg in Resources */,
+				DF1B52161FCBE861003924B0 /* cm_button.png in Resources */,
 				DFE52CFE1FAE830A00AFD3B8 /* cancelButton.png in Resources */,
+				DF1B521B1FCBE861003924B0 /* ok_button.png in Resources */,
+				DF1B52171FCBE861003924B0 /* starEmpty.png in Resources */,
+				DF1B521C1FCBE861003924B0 /* om_button.png in Resources */,
+				DF1B52271FCBEC7E003924B0 /* leave.png in Resources */,
 				DF62D4A01FCB56FF00E4F8F3 /* final_findDiscussions.png in Resources */,
+				DF1B52181FCBE861003924B0 /* gc_button.png in Resources */,
+				DF1B52251FCBEC7E003924B0 /* accept.png in Resources */,
 				DFE168BF1FB1D4C200D580B5 /* oneStar.png in Resources */,
 				DFE168CB1FB2A65800D580B5 /* blueCircle.png in Resources */,
+				DF1B522F1FCBEC99003924B0 /* questions.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
