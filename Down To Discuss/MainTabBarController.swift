@@ -18,4 +18,10 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         selectedIndex = defaultIndex
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tabBar.barTintColor = UIColor.black
+    }
 }

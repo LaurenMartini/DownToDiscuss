@@ -1513,14 +1513,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yBy-92-SnR">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" ambiguous="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yBy-92-SnR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                 <connections>
                                     <outlet property="delegate" destination="8rJ-Kc-sve" id="Fhx-dK-cQH"/>
                                 </connections>
                             </mapView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blueCircle.png" translatesAutoresizingMaskIntoConstraints="NO" id="G6Q-LF-S42">
-                                <rect key="frame" x="178" y="324" width="19" height="18"/>
+                                <rect key="frame" x="178" y="324.5" width="19" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="Ruk-BY-miu"/>
                                     <constraint firstAttribute="width" constant="19" id="b7v-YX-7p1"/>
@@ -1560,7 +1560,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jTD-Up-vZz">
-                                <rect key="frame" x="41" y="47" width="293" height="574"/>
+                                <rect key="frame" x="41" y="46.5" width="293" height="574"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyd-50-Bnm">
                                         <rect key="frame" x="245" y="8" width="40" height="33"/>
