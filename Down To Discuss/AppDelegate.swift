@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        locationManager = CLLocationManager()
 //        locationManager?.requestWhenInUseAuthorization()
         FirebaseApp.configure()
+        UIApplication.shared.statusBarStyle = .lightContent
         return true
     }
 

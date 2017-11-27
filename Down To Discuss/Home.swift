@@ -88,6 +88,7 @@ class Home: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
         let searchBar = resultSearchController!.searchBar
         searchBar.sizeToFit()
         searchBar.placeholder = "Search for topic"
+        searchBar.backgroundColor = UIColor.black
         navigationItem.titleView = resultSearchController?.searchBar
         
         //configure the UISearchController appearance
