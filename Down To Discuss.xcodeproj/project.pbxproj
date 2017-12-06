@@ -62,6 +62,11 @@
 		DF6C4FC21FAC1A0E003CBE57 /* Down_To_DiscussTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6C4FC11FAC1A0E003CBE57 /* Down_To_DiscussTests.swift */; };
 		DF737C1D1FC50428008041E5 /* TutorialContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF737C1C1FC50428008041E5 /* TutorialContentViewController.swift */; };
 		DF737C1F1FC510F2008041E5 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF737C1E1FC510F2008041E5 /* TutorialViewController.swift */; };
+		DFA824BE1FD79AE3008A1D36 /* a_searchDiscussions.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA824B91FD79AE1008A1D36 /* a_searchDiscussions.png */; };
+		DFA824BF1FD79AE3008A1D36 /* a_checkInForPoints.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA824BA1FD79AE1008A1D36 /* a_checkInForPoints.png */; };
+		DFA824C01FD79AE3008A1D36 /* a_getPoints.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA824BB1FD79AE2008A1D36 /* a_getPoints.png */; };
+		DFA824C11FD79AE3008A1D36 /* a_goToDiscussion.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA824BC1FD79AE2008A1D36 /* a_goToDiscussion.png */; };
+		DFA824C21FD79AE3008A1D36 /* a_findDiscussions.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA824BD1FD79AE3008A1D36 /* a_findDiscussions.png */; };
 		DFBB23091FBC614300FFC70B /* HostConfirmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBB23081FBC614300FFC70B /* HostConfirmController.swift */; };
 		DFBB230B1FBC619A00FFC70B /* HostNotifiedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBB230A1FBC619A00FFC70B /* HostNotifiedController.swift */; };
 		DFBB230D1FBC6BAB00FFC70B /* UserRejectedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBB230C1FBC6BAB00FFC70B /* UserRejectedController.swift */; };
@@ -171,6 +176,11 @@
 		DF6C4FC31FAC1A0E003CBE57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF737C1C1FC50428008041E5 /* TutorialContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialContentViewController.swift; sourceTree = "<group>"; };
 		DF737C1E1FC510F2008041E5 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		DFA824B91FD79AE1008A1D36 /* a_searchDiscussions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = a_searchDiscussions.png; path = ../../../tutorialImages/a_searchDiscussions.png; sourceTree = "<group>"; };
+		DFA824BA1FD79AE1008A1D36 /* a_checkInForPoints.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = a_checkInForPoints.png; path = ../../../tutorialImages/a_checkInForPoints.png; sourceTree = "<group>"; };
+		DFA824BB1FD79AE2008A1D36 /* a_getPoints.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = a_getPoints.png; path = ../../../tutorialImages/a_getPoints.png; sourceTree = "<group>"; };
+		DFA824BC1FD79AE2008A1D36 /* a_goToDiscussion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = a_goToDiscussion.png; path = ../../../tutorialImages/a_goToDiscussion.png; sourceTree = "<group>"; };
+		DFA824BD1FD79AE3008A1D36 /* a_findDiscussions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = a_findDiscussions.png; path = ../../../tutorialImages/a_findDiscussions.png; sourceTree = "<group>"; };
 		DFBB23081FBC614300FFC70B /* HostConfirmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostConfirmController.swift; sourceTree = "<group>"; };
 		DFBB230A1FBC619A00FFC70B /* HostNotifiedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostNotifiedController.swift; sourceTree = "<group>"; };
 		DFBB230C1FBC6BAB00FFC70B /* UserRejectedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRejectedController.swift; sourceTree = "<group>"; };
@@ -270,6 +280,11 @@
 				DFE52CEB1FAC290E00AFD3B8 /* Profile.swift */,
 				DF6C4FAC1FAC1A0E003CBE57 /* Leaderboard.swift */,
 				DF6C4FAE1FAC1A0E003CBE57 /* Home.swift */,
+				DFA824BA1FD79AE1008A1D36 /* a_checkInForPoints.png */,
+				DFA824BD1FD79AE3008A1D36 /* a_findDiscussions.png */,
+				DFA824BB1FD79AE2008A1D36 /* a_getPoints.png */,
+				DFA824BC1FD79AE2008A1D36 /* a_goToDiscussion.png */,
+				DFA824B91FD79AE1008A1D36 /* a_searchDiscussions.png */,
 				DF62D4931FCA370900E4F8F3 /* MapAnnotationView.swift */,
 				DF1169861FC95EEC00C4554C /* Review.swift */,
 				DFE168AE1FB1537200D580B5 /* MapAnnotations.swift */,
@@ -473,10 +488,13 @@
 				DF62D4A11FCB56FF00E4F8F3 /* final_searchDiscussions.png in Resources */,
 				DF62D49F1FCB56FF00E4F8F3 /* final_2_searchDiscussions.png in Resources */,
 				DF1B52081FCBE399003924B0 /* LogoMain.png in Resources */,
+				DFA824C01FD79AE3008A1D36 /* a_getPoints.png in Resources */,
 				DFE168BE1FB1D4C200D580B5 /* fourStars.png in Resources */,
 				DF62D49D1FCB56FF00E4F8F3 /* final_goToDiscussion.png in Resources */,
 				DFE52CFB1FAE817F00AFD3B8 /* Rectangle.png in Resources */,
 				DF1B52151FCBE861003924B0 /* message_button.png in Resources */,
+				DFA824C11FD79AE3008A1D36 /* a_goToDiscussion.png in Resources */,
+				DFA824BF1FD79AE3008A1D36 /* a_checkInForPoints.png in Resources */,
 				DFE168B71FB1D34C00D580B5 /* star-128.png in Resources */,
 				DF1B52291FCBEC7E003924B0 /* reject.png in Resources */,
 				DFE168C01FB1D4C200D580B5 /* threeStars.png in Resources */,
@@ -497,6 +515,7 @@
 				DFE168C11FB1D4C200D580B5 /* twoStars.png in Resources */,
 				DF1B52261FCBEC7E003924B0 /* end.png in Resources */,
 				DF1B521D1FCBE861003924B0 /* dc_button.png in Resources */,
+				DFA824C21FD79AE3008A1D36 /* a_findDiscussions.png in Resources */,
 				DFE168C31FB1D78900D580B5 /* defaultProfile.png in Resources */,
 				DF62D49E1FCB56FF00E4F8F3 /* final_checkInForPoints.png in Resources */,
 				DF1B52141FCBE861003924B0 /* go_button.png in Resources */,
@@ -505,6 +524,7 @@
 				DFE54C901FBA35F0005B0184 /* GoogleService-Info.plist in Resources */,
 				DF1B52281FCBEC7E003924B0 /* create.png in Resources */,
 				DFE52CF01FAC30E600AFD3B8 /* closeUpMap.tiff in Resources */,
+				DFA824BE1FD79AE3008A1D36 /* a_searchDiscussions.png in Resources */,
 				DFE52D011FAE88ED00AFD3B8 /*  Back Arrow.png in Resources */,
 				DF696C351FB99AF0006A3DAA /* 5.jpg in Resources */,
 				DF1B52161FCBE861003924B0 /* cm_button.png in Resources */,
